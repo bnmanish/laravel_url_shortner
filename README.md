@@ -1,57 +1,116 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel URL Shortener
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Author
 
-## About Laravel
+**B N Manish**
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- GitHub: [bnmanish](https://github.com/bnmanish)
+- LinkedIn: [B N Manish](https://www.linkedin.com/in/bnmanish/)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+A multi-tenant URL shortening service built with Laravel. Users can generate short URLs that redirect to the original URLs.
 
-## Learning Laravel
+## Tech Stack
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Framework:** Laravel 13 (Laravel 13.8)
+- **PHP:** ^8.3
+- **Database:** MySQL
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Features
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+### Authentication & Authorization
+- Three roles: **SuperAdmin**, **Admin**, **Member**
+- Role-based middleware for access control
+- Login / Logout using Laravel Breeze
 
-## Agentic Development
+### Invitation System
+- SuperAdmin can invite an Admin to a new company
+- Admin can invite another Admin or Member within their own company
+- Email invitations sent via Laravel Mail
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+### URL Shortener
+- Admin and Member can create short URLs
+- SuperAdmin cannot create short URLs
+- SuperAdmin can view all short URLs across every company
+- Admin can only see short URLs created within their own company
+- Member can only see short URLs created by themselves
+- All short URLs are publicly resolvable and redirect to the original URL
+
+## Setup Instructions
+
+### 1. Clone the repository
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone <repository-url>
+cd laravel_url_shortner
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### 2. Install dependencies
 
-## Contributing
+```bash
+composer install
+npm install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 3. Environment configuration
 
-## Code of Conduct
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Edit `.env` and configure your database credentials:
 
-## Security Vulnerabilities
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel_url_shortner
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 4. Email configuration (required for invitations)
+
+Edit `.env` and set your mail driver credentials (e.g., Gmail SMTP):
+
+```
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME="your_email@gmail.com"
+MAIL_PASSWORD="your_app_password"
+MAIL_FROM_ADDRESS="your_email@gmail.com"
+MAIL_FROM_NAME="${APP_NAME}"
+MAIL_ENCRYPTION=tls
+```
+
+> **Note:** If using Gmail, you'll need an [App Password](https://support.google.com/accounts/answer/185833) (not your regular password).
+
+### 5. Run migrations and seeders
+
+```bash
+php artisan migrate
+php artisan db:seed --class=CompanySeeder
+php artisan db:seed --class=SuperAdminSeeder
+```
+
+This will:
+- Create the necessary database tables
+- Seed 5 companies: Google, Microsoft, Amazon, Apple, Meta
+- Create a default Super Admin account:
+  - **Email:** `developermanish95@gmail.com`
+  - **Password:** `12345678`
+
+
+### 6. Start the development server
+
+```bash
+php artisan serve
+```
+
+Visit `http://localhost:8000` in your browser.
 
 ## License
 
