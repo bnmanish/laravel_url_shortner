@@ -41,6 +41,6 @@ class InviteController extends Controller
             new UserInvitationMail($user,$company,$request->password)
         );
 
-        return redirect()->back()->with('success', 'Invitation email sent successfully. If it does not appear in the inbox, please check the Spam/Junk folder.');
+        return redirect()->back()->with('success', 'Invitation sent successfully. please check your email inbox/Spam/Junk folder.');
     }
 }
