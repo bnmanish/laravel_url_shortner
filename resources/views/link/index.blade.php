@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Invite User
+            Create Short URL
         </h2>
     </x-slot>
 
@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900">
                 	@if(session('success'))
 					    <div class="text-green-600 mb-4">
-					        {{ session('success') }}
+					        {!!session('success')!!}
 					    </div>
 					@endif
                     @if ($errors->any())
@@ -23,31 +23,17 @@
                             </ul>
                         </div>
                     @endif
-                    <form method="POST" action="{{ route('invite.store') }}">
+                    <form method="POST" action="{{route('store.link')}}">
                         @csrf
                         <div>
-                        	Name : <input type="text" name="name" required>
+                        	Title : <input type="text" name="title" required>
                         </div>
+
                         <div>
-                        	email : <input type="email" name="email" required>
-                    	</div>
-                        @if(Auth::user()->role === 'Super Admin')
-                    	<div> Select Company : 
-                        <select name="company" required >
-                            <option value="">Select Company</option>
-                            @foreach($companies as $company)
-                                <option value="{{ $company->id }}">
-                                    {{ $company->name }}
-                                </option>
-                            @endforeach
-                        </select>
-                    	</div>
-                        @endif
-                    	<div>
-	                        Password : <input type="password" name="password" required>
+                        	URL : <input type="text" name="url" required>
                     	</div>
                          <div class="flex">
-                            <x-primary-button>Submit</x-primary-button>
+                            <x-primary-button>Create</x-primary-button>
                         </div>
                     </form>
                 </div>

@@ -20,6 +20,12 @@
                         Invite User
                     </x-nav-link>
                     @endif
+
+                    @if(auth()->user()->role === 'Admin' || auth()->user()->role === 'Member')
+                    <x-nav-link :href="route('create.link')" :active="request()->routeIs('create.link')">
+                        Create Short URL
+                    </x-nav-link>
+                    @endif
                 </div>
             </div>
 
