@@ -88,7 +88,13 @@ MAIL_ENCRYPTION=tls
 
 > **Note:** If using Gmail, you'll need an [App Password](https://support.google.com/accounts/answer/185833) (not your regular password).
 
-### 5. Run migrations and seeders
+### 5. Build frontend assets
+
+```bash
+npm run build
+```
+
+### 6. Run migrations and seeders
 
 ```bash
 php artisan migrate
@@ -104,7 +110,7 @@ This will:
   - **Password:** `12345678`
 
 
-### 6. Start the development server
+### 7. Start the development server
 
 ```bash
 php artisan serve
