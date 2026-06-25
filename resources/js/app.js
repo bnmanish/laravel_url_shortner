@@ -1,7 +1,12 @@
 
 
-import Alpine from 'alpinejs';
+// import Alpine from 'alpinejs';
 
-window.Alpine = Alpine;
+// window.Alpine = Alpine;
 
-Alpine.start();
+// Alpine.start();
+
+
+import './bootstrap';
+import 'bootstrap';
+import '../css/app.css';
