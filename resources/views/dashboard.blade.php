@@ -1,65 +1,100 @@
-<style>
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-table th,
-table td {
-    border: 1px solid #d1d5db;
-    padding: 10px;
-    text-align: left;
-}
-table th {
-    background-color: #f3f4f6;
-    font-weight: bold;
-}
-table tr:nth-child(even) {
-    background-color: #f9fafb;
-}
-table tr:hover {
-    background-color: #f3f4f6;
-}
-</style>
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.app')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Title</th>
-                                <th>User</th>
-                                <th>Company</th>
-                                <th>URL</th>
-                                <th>Short URL</th>
-                                <th>Date</th>
+@section('content')
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($data as $dataRow)
-                            <tr>
-                                <td>{{$dataRow->id}}</td>
-                                <td>{{$dataRow->title}}</td>
-                                <td>{{ $dataRow->user->name }}</td>
-                                <td>{{ $dataRow->company->name }}</td>
-                                <td>{{$dataRow->url}}</td>
-                                <td><a href="{{ url($dataRow->url_id) }}" target="_blank">{{ url($dataRow->url_id) }}</a></td>
-                                <td>{{$dataRow->created_at}}</td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+<div class="container py-4">
+
+    <div class="card shadow">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h4 class="mb-0">Dashboard</h4>
+
+            @if(in_array(Auth::user()->role, ['Admin', 'Member']))
+                <a href="{{ route('create.link') }}" class="btn btn-primary">
+                    Create Short URL
+                </a>
+            @endif
         </div>
+
+        <div class="card-body">
+
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            <div class="table-responsive">
+
+                <table class="table table-bordered table-hover align-middle">
+
+                    <thead class="table-dark">
+                        <tr>
+                            <th width="60">#</th>
+                            <th>Title</th>
+                            <th>User</th>
+                            <th>Company</th>
+                            <th>Original URL</th>
+                            <th>Short URL</th>
+                            <th width="180">Created</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @forelse($data as $row)
+
+                            <tr>
+
+                                <td>{{ $row->id }}</td>
+
+                                <td>{{ $row->title }}</td>
+
+                                <td>{{ $row->user->name ?? '-' }}</td>
+
+                                <td>{{ $row->company->name ?? '-' }}</td>
+
+                                <td>
+                                    <a href="{{ $row->url }}"
+                                       target="_blank"
+                                       class="text-decoration-none">
+                                        {{ Str::limit($row->url, 60) }}
+                                    </a>
+                                </td>
+
+                                <td>
+                                    <a href="{{ url($row->url_id) }}"
+                                       target="_blank"
+                                       class="fw-bold">
+                                        {{ url($row->url_id) }}
+                                    </a>
+                                </td>
+
+                                <td>
+                                    {{ $row->created_at->format('d M Y h:i A') }}
+                                </td>
+
+                            </tr>
+
+                        @empty
+
+                            <tr>
+                                <td colspan="7" class="text-center">
+                                    No Short URLs Found.
+                                </td>
+                            </tr>
+
+                        @endforelse
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
     </div>
-</x-app-layout>
+
+</div>
+
+@endsection
