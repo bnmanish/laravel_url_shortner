@@ -40,19 +40,12 @@
                     </thead>
 
                     <tbody>
-
                         @forelse($data as $row)
-
                             <tr>
-
                                 <td>{{ $row->id }}</td>
-
                                 <td>{{ $row->title }}</td>
-
                                 <td>{{ $row->user->name ?? '-' }}</td>
-
                                 <td>{{ $row->company->name ?? '-' }}</td>
-
                                 <td>
                                     <a href="{{ $row->url }}"
                                        target="_blank"
@@ -60,7 +53,6 @@
                                         {{ Str::limit($row->url, 60) }}
                                     </a>
                                 </td>
-
                                 <td>
                                     <a href="{{ url($row->url_id) }}"
                                        target="_blank"
@@ -68,33 +60,21 @@
                                         {{ url($row->url_id) }}
                                     </a>
                                 </td>
-
                                 <td>
                                     {{ $row->created_at->format('d M Y h:i A') }}
                                 </td>
-
                             </tr>
-
                         @empty
-
                             <tr>
                                 <td colspan="7" class="text-center">
                                     No Short URLs Found.
                                 </td>
                             </tr>
-
                         @endforelse
-
                     </tbody>
-
                 </table>
-
             </div>
-
         </div>
-
     </div>
-
 </div>
-
 @endsection
