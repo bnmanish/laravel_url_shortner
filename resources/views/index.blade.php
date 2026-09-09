@@ -1,112 +1,238 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!doctype html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ config('app.name', 'Laravel URL Shortener') }}</title>
-
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Short links. Big results. — Linkly</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{url('/')}}/assets/frontend/css/style.css">
 </head>
+
 <body>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="/">
-            {{ config('app.name', 'Laravel URL Shortener') }}
-        </a>
-
-        <div class="ms-auto">
-            @auth
-                <a href="{{ url('/dashboard') }}" class="btn btn-outline-light me-2">
-                    Dashboard
-                </a>
-            @else
-                <a href="{{ route('login') }}" class="btn btn-outline-light me-2">
-                    Login
-                </a>
-
-                @if(Route::has('register'))
-                    <a href="{{ route('register') }}" class="btn btn-primary">
-                        Register
-                    </a>
-                @endif
-            @endauth
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container py-2">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html"><span
+                    class="brand-mark">L</span>Linkly</a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav"><span
+                    class="navbar-toggler-icon"></span></button>
+            <div id="nav" class="collapse navbar-collapse">
+                <div class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                    <a class="nav-link" href="pricing.html">Pricing</a><a class="nav-link"
+                        href="analytics.html">Analytics</a>
+                    <a class="nav-link" href="login.html">Log in</a><a class="btn btn-brand px-3" href="signup.html">Get
+                        started</a>
+                </div>
+            </div>
         </div>
-    </div>
-</nav>
-
-<section class="py-5 bg-light">
-    <div class="container text-center">
-
-        <h1 class="display-4 fw-bold">
-            Laravel URL Shortener
-        </h1>
-
-        <p class="lead mt-3">
-            Create short, memorable URLs and track their performance with ease.
-        </p>
-
-        <div class="mt-4">
-
-            @auth
-                <a href="{{ route('dashboard') }}" class="btn btn-primary btn-lg">
-                    Go to Dashboard
-                </a>
-            @else
-                <a href="{{ route('register') }}" class="btn btn-primary btn-lg me-2">
-                    Get Started
-                </a>
-
-                <a href="{{ route('login') }}" class="btn btn-outline-secondary btn-lg">
-                    Login
-                </a>
-            @endauth
-
-        </div>
-
-    </div>
-</section>
-
-<section class="py-5">
-    <div class="container">
-
-        <div class="row text-center">
-
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h5>🔗 Short URLs</h5>
-                        <p>Create unique short links instantly.</p>
+    </nav>
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7">
+                    <span class="badge rounded-pill badge-soft px-3 py-2 mb-3">URL management, made simple</span>
+                    <h1>Turn long links into <span class="text-primary">short stories.</span></h1>
+                    <p class="lead mt-4">Create memorable short links, share them everywhere, and understand what
+                        happens after every click.</p>
+                    <form id="shortenForm" class="url-box mt-4">
+                        <div class="input-group input-group-lg">
+                            <input class="form-control" id="longUrl" placeholder="Paste your long URL here" required>
+                            <button class="btn btn-brand px-4" type="submit">Shorten</button>
+                        </div>
+                        <div id="shortenResult" class="d-none mt-3 p-3 rounded-3 bg-light">
+                            <div class="d-flex align-items-center justify-content-between gap-2 flex-wrap">
+                                <span class="fw-semibold text-primary" id="shortUrlDisplay">linkly.to/demo123</span>
+                                <button type="button" class="btn btn-sm btn-soft"
+                                    data-copy="https://linkly.to/demo123"><i class="bi bi-copy me-1"></i>Copy</button>
+                            </div>
+                        </div>
+                    </form>
+                    <button class="btn btn-outline-secondary mt-3" data-bs-toggle="modal"
+                        data-bs-target="#createLinkModal">
+                        <i class="bi bi-gear me-1"></i>Advanced options
+                    </button>
+                    <div class="d-flex gap-4 mt-4 muted small"><span><i
+                                class="bi bi-check2-circle text-success me-1"></i>No credit card</span><span><i
+                                class="bi bi-lightning-charge text-warning me-1"></i>Instant links</span></div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="card-soft p-3">
+                        <div class="d-flex justify-content-between align-items-center px-2 py-2"><span
+                                class="fw-bold">Link performance</span><span
+                                class="badge bg-success-subtle text-success">Live</span></div>
+                        <div class="chart-placeholder mt-2">
+                            <div class="chart-line"></div>
+                        </div>
+                        <div class="row g-2 mt-2">
+                            <div class="col-4">
+                                <div class="bg-light rounded-3 p-3"><small class="muted">Clicks</small>
+                                    <div class="fw-bold fs-5">24.8K</div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="bg-light rounded-3 p-3"><small class="muted">CTR</small>
+                                    <div class="fw-bold fs-5">8.4%</div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="bg-light rounded-3 p-3"><small class="muted">Growth</small>
+                                    <div class="fw-bold fs-5 text-success">+18%</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-4 mt-4 mt-md-0">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h5>📊 Analytics</h5>
-                        <p>Track clicks and monitor link usage.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mt-4 mt-md-0">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h5>⚡ Fast & Secure</h5>
-                        <p>Built with Laravel and Bootstrap 5.</p>
-                    </div>
-                </div>
-            </div>
-
         </div>
+    </section>
+    <section class="section-pad">
+        <div class="container">
+            <div class="text-center mb-5"><span class="text-primary fw-semibold">WHY LINKLY</span>
+                <h2 class="fw-bold mt-2">Everything you need to make links work harder.</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card-soft p-4 h-100">
+                        <div class="feature-icon mb-3"><i class="bi bi-link-45deg"></i></div>
+                        <h5>Branded links</h5>
+                        <p class="muted mb-0">Use memorable slugs and custom domains that build trust with every share.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-soft p-4 h-100">
+                        <div class="feature-icon mb-3"><i class="bi bi-graph-up-arrow"></i></div>
+                        <h5>Actionable analytics</h5>
+                        <p class="muted mb-0">See clicks, devices, locations and referrers in one clean dashboard.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-soft p-4 h-100">
+                        <div class="feature-icon mb-3"><i class="bi bi-shield-check"></i></div>
+                        <h5>Secure by default</h5>
+                        <p class="muted mb-0">Manage links centrally with sensible controls and reliable redirects.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container py-4 d-flex justify-content-between flex-wrap gap-2"><span
+                class="fw-bold">Linkly</span><span class="muted">© 2026 Linkly. Built with Bootstrap 5.</span></div>
+    </footer>
 
+    <div class="modal fade" id="createLinkModal" tabindex="-1" aria-labelledby="createLinkModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content card-soft border-0 shadow-lg">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold" id="createLinkModalLabel">Create new link</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="createLinkForm">
+                    <div class="modal-body pt-0">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label class="form-label fw-semibold">Destination URL <span
+                                        class="text-danger">*</span></label>
+                                <input type="url" class="form-control" id="modalLongUrl"
+                                    placeholder="https://example.com/your-long-url" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">Custom short link</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">linkly.to/</span>
+                                    <input type="text" class="form-control" id="customSlug"
+                                        placeholder="my-custom-link" pattern="[a-zA-Z0-9_-]+" maxlength="50">
+                                </div>
+                                <div class="form-text">Leave empty for auto-generated. Letters, numbers, hyphens,
+                                    underscores only.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">Domain</label>
+                                <select class="form-select" id="domainSelect">
+                                    <option value="linkly.to" selected>linkly.to</option>
+                                    <option value="lnk.ly">lnk.ly</option>
+                                    <option value="custom" disabled>Add custom domain...</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label fw-semibold">Title</label>
+                                <input type="text" class="form-control" id="linkTitle"
+                                    placeholder="Summer Campaign 2026">
+                                <div class="form-text">Internal name to help you identify this link.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">Tags</label>
+                                <input type="text" class="form-control" id="linkTags"
+                                    placeholder="marketing, summer, sale" data-role="tagsinput">
+                                <div class="form-text">Comma-separated tags for organization.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">Expiration date</label>
+                                <input type="date" class="form-control" id="expirationDate">
+                                <div class="form-text">Link will stop working after this date.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">Max clicks</label>
+                                <input type="number" class="form-control" id="maxClicks" placeholder="10000"
+                                    min="1">
+                                <div class="form-text">Link expires after this many clicks.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check form-switch mt-4">
+                                    <input class="form-check-input" type="checkbox" id="passwordProtect"
+                                        role="switch">
+                                    <label class="form-check-label fw-semibold" for="passwordProtect">Password
+                                        protect</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6" id="passwordField" style="display: none;">
+                                <label class="form-label fw-semibold">Password</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="linkPassword"
+                                        placeholder="Enter password">
+                                    <button class="btn btn-outline-secondary" type="button"
+                                        data-toggle-password="linkPassword"><i class="bi bi-eye"></i></button>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="utmBuilderToggle"
+                                        role="switch">
+                                    <label class="form-check-label fw-semibold" for="utmBuilderToggle">Add UTM
+                                        parameters</label>
+                                </div>
+                            </div>
+                            <div class="col-12" id="utmFields" style="display: none;">
+                                <div class="row g-2">
+                                    <div class="col-md-4"><input type="text" class="form-control" id="utmSource"
+                                            placeholder="utm_source (e.g., newsletter)"></div>
+                                    <div class="col-md-4"><input type="text" class="form-control" id="utmMedium"
+                                            placeholder="utm_medium (e.g., email)"></div>
+                                    <div class="col-md-4"><input type="text" class="form-control"
+                                            id="utmCampaign" placeholder="utm_campaign (e.g., summer_sale)"></div>
+                                    <div class="col-md-4"><input type="text" class="form-control" id="utmTerm"
+                                            placeholder="utm_term (optional)"></div>
+                                    <div class="col-md-4"><input type="text" class="form-control" id="utmContent"
+                                            placeholder="utm_content (optional)"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-0 pt-0">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-brand"><i class="bi bi-link-45deg me-1"></i>Create
+                            link</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-</section>
 
-<footer class="bg-dark text-white text-center py-3">
-    © {{ date('Y') }} {{ config('app.name') }}. All Rights Reserved.
-</footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
+
 </html>

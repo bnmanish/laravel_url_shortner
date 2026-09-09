@@ -1,0 +1,186 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Analytics — Linkly</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"><link rel="stylesheet" href="assets/css/style.css"></head><body>
+        <div class="dashboard-shell">
+        <aside class="sidebar">
+          <div class="p-3">
+            <a href="index.html" class="d-flex align-items-center gap-2 mb-4">
+              <span class="brand-mark">L</span><span class="sidebar-brand-text fw-bold">Linkly</span>
+            </a>
+            <div class="small text-uppercase muted fw-semibold mb-2 label">Workspace</div>
+            <nav class="nav flex-column gap-1">
+              <a class="nav-link " href="links.html"><i class="bi bi-link-45deg me-2"></i><span class="label">Links</span></a>
+              <a class="nav-link active" href="analytics.html"><i class="bi bi-bar-chart-line me-2"></i><span class="label">Analytics</span></a>
+              <a class="nav-link" href="qr-codes.html"><i class="bi bi-qr-code me-2"></i><span class="label">QR Codes</span></a>
+              <a class="nav-link" href="team.html"><i class="bi bi-people me-2"></i><span class="label">Team</span></a>
+              <a class="nav-link" href="pricing.html"><i class="bi bi-stars me-2"></i><span class="label">Upgrade</span></a>
+            </nav>
+            <hr>
+            <div class="small text-uppercase muted fw-semibold mb-2 label">Account</div>
+            <nav class="nav flex-column gap-1">
+              <a class="nav-link" href="settings.html"><i class="bi bi-gear me-2"></i><span class="label">Settings</span></a>
+              <a class="nav-link" href="login.html"><i class="bi bi-box-arrow-right me-2"></i><span class="label">Log out</span></a>
+            </nav>
+          </div>
+          <div class="position-absolute bottom-0 p-3 w-100 user-info">
+            <div class="d-flex align-items-center gap-2">
+              <div class="rounded-circle bg-primary-subtle text-primary fw-bold d-flex align-items-center justify-content-center" style="width:36px;height:36px;">BN</div>
+              <div><div class="fw-semibold small">Demo User</div><div class="muted small">Free plan</div></div>
+            </div>
+          </div>
+        </aside>
+        <main class="main-content">
+<div class="d-flex justify-content-between align-items-center mb-4"><div><h2 class="fw-bold mb-1">Analytics</h2><p class="muted mb-0">Understand how your links are performing.</p></div><select class="form-select w-auto"><option>Last 30 days</option><option>Last 7 days</option><option>Last 90 days</option></select></div>
+<div class="row g-3 mb-4">
+<div class="col-md-3"><div class="card-soft stat-card"><div class="muted small">Total clicks</div><div class="stat-number">26,278</div><div class="text-success small"><i class="bi bi-arrow-up"></i> 18.2%</div></div></div>
+<div class="col-md-3"><div class="card-soft stat-card"><div class="muted small">Unique visitors</div><div class="stat-number">18,904</div><div class="text-success small"><i class="bi bi-arrow-up"></i> 11.6%</div></div></div>
+<div class="col-md-3"><div class="card-soft stat-card"><div class="muted small">Countries</div><div class="stat-number">42</div><div class="text-success small"><i class="bi bi-arrow-up"></i> 4 new</div></div></div>
+<div class="col-md-3"><div class="card-soft stat-card"><div class="muted small">Avg. CTR</div><div class="stat-number">8.4%</div><div class="text-success small"><i class="bi bi-arrow-up"></i> 1.2%</div></div></div>
+</div>
+<div class="row g-4 mb-4">
+  <div class="col-lg-8">
+    <div class="card-soft p-4">
+      <div class="d-flex justify-content-between mb-3">
+        <h5 class="fw-bold">Clicks over time</h5>
+        <div class="btn-group btn-group-sm" role="group">
+          <input type="radio" class="btn-check" name="chartPeriod" id="chart7d" value="7d" checked>
+          <label class="btn btn-outline-primary" for="chart7d">7D</label>
+          <input type="radio" class="btn-check" name="chartPeriod" id="chart30d" value="30d">
+          <label class="btn btn-outline-primary" for="chart30d">30D</label>
+          <input type="radio" class="btn-check" name="chartPeriod" id="chart90d" value="90d">
+          <label class="btn btn-outline-primary" for="chart90d">90D</label>
+        </div>
+      </div>
+      <div class="chart-placeholder" style="height: 350px;">
+        <canvas id="clicksChart"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="card-soft p-4 h-100">
+      <h5 class="fw-bold mb-3">Top locations</h5>
+      <div id="locationsList">
+        <div class="d-flex justify-content-between mb-2"><span>India</span><strong>38%</strong></div>
+        <div class="progress mb-3" style="height:7px"><div class="progress-bar" style="width:38%"></div></div>
+        <div class="d-flex justify-content-between mb-2"><span>United States</span><strong>24%</strong></div>
+        <div class="progress mb-3" style="height:7px"><div class="progress-bar" style="width:24%"></div></div>
+        <div class="d-flex justify-content-between mb-2"><span>United Kingdom</span><strong>12%</strong></div>
+        <div class="progress mb-3" style="height:7px"><div class="progress-bar" style="width:12%"></div></div>
+        <div class="d-flex justify-content-between mb-2"><span>Canada</span><strong>8%</strong></div>
+        <div class="progress mb-3" style="height:7px"><div class="progress-bar" style="width:8%"></div></div>
+        <div class="d-flex justify-content-between mb-2"><span>Germany</span><strong>6%</strong></div>
+        <div class="progress" style="height:7px"><div class="progress-bar" style="width:6%"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-4 mb-4">
+  <div class="col-lg-6">
+    <div class="card-soft p-4">
+      <h5 class="fw-bold mb-3">Devices</h5>
+      <div class="chart-placeholder" style="height: 250px;">
+        <canvas id="devicesChart"></canvas>
+      </div>
+      <div class="row g-2 mt-3 text-center">
+        <div class="col-4"><div class="fw-bold text-primary" id="deviceMobile">52%</div><small class="muted">Mobile</small></div>
+        <div class="col-4"><div class="fw-bold text-info" id="deviceDesktop">42%</div><small class="muted">Desktop</small></div>
+        <div class="col-4"><div class="fw-bold text-warning" id="deviceTablet">6%</div><small class="muted">Tablet</small></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card-soft p-4">
+      <h5 class="fw-bold mb-3">Browsers</h5>
+      <div class="chart-placeholder" style="height: 250px;">
+        <canvas id="browsersChart"></canvas>
+      </div>
+      <div class="row g-2 mt-3 text-center">
+        <div class="col-4"><div class="fw-bold">Chrome</div><small class="muted">68%</small></div>
+        <div class="col-4"><div class="fw-bold">Safari</div><small class="muted">22%</small></div>
+        <div class="col-4"><div class="fw-bold">Firefox</div><small class="muted">6%</small></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-4 mb-4">
+  <div class="col-lg-6">
+    <div class="card-soft p-4">
+      <h5 class="fw-bold mb-3">Operating Systems</h5>
+      <div class="chart-placeholder" style="height: 250px;">
+        <canvas id="osChart"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card-soft p-4">
+      <h5 class="fw-bold mb-3">Referrers</h5>
+      <div id="referrersList">
+        <div class="d-flex justify-content-between mb-2 p-2 rounded bg-light"><span><i class="bi bi-globe me-2"></i>Direct</span><strong>45%</strong></div>
+        <div class="d-flex justify-content-between mb-2 p-2 rounded bg-light"><span><i class="bi bi-twitter me-2"></i>Twitter</span><strong>22%</strong></div>
+        <div class="d-flex justify-content-between mb-2 p-2 rounded bg-light"><span><i class="bi bi-facebook me-2"></i>Facebook</span><strong>15%</strong></div>
+        <div class="d-flex justify-content-between mb-2 p-2 rounded bg-light"><span><i class="bi bi-linkedin me-2"></i>LinkedIn</span><strong>8%</strong></div>
+        <div class="d-flex justify-content-between p-2 rounded bg-light"><span><i class="bi bi-envelope me-2"></i>Email</span><strong>10%</strong></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-4">
+  <div class="col-12">
+    <div class="card-soft p-4">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="fw-bold mb-0">Top performing links</h5>
+        <button class="btn btn-sm btn-outline-primary">View all</button>
+      </div>
+      <div class="table-responsive">
+        <table class="table align-middle mb-0">
+          <thead>
+            <tr>
+              <th>Short link</th>
+              <th>Title</th>
+              <th>Clicks</th>
+              <th>Unique visitors</th>
+              <th>CTR</th>
+              <th>Top location</th>
+              <th>Top referrer</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="fw-semibold text-primary">linkly.to/summer</div></td>
+              <td>Summer Sale 2026</td>
+              <td class="fw-semibold">12,482</td>
+              <td>9,841</td>
+              <td><span class="badge bg-success-subtle text-success">8.4%</span></td>
+              <td>India (38%)</td>
+              <td>Direct (45%)</td>
+            </tr>
+            <tr>
+              <td><div class="fw-semibold text-primary">linkly.to/product</div></td>
+              <td>New Product Launch</td>
+              <td class="fw-semibold">8,104</td>
+              <td>6,210</td>
+              <td><span class="badge bg-info-subtle text-info">7.2%</span></td>
+              <td>United States (32%)</td>
+              <td>Twitter (28%)</td>
+            </tr>
+            <tr>
+              <td><div class="fw-semibold text-primary">linkly.to/instagram</div></td>
+              <td>Instagram Profile</td>
+              <td class="fw-semibold">5,692</td>
+              <td>4,892</td>
+              <td><span class="badge bg-warning-subtle text-warning">6.8%</span></td>
+              <td>United Kingdom (28%)</td>
+              <td>Instagram (52%)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/app.js"></script></body></html>

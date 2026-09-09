@@ -1,0 +1,302 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Links — Linkly</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"><link rel="stylesheet" href="assets/css/style.css"></head><body>
+        <div class="dashboard-shell">
+        <aside class="sidebar">
+          <div class="p-3">
+            <a href="index.html" class="d-flex align-items-center gap-2 mb-4">
+              <span class="brand-mark">L</span><span class="sidebar-brand-text fw-bold">Linkly</span>
+            </a>
+            <div class="small text-uppercase muted fw-semibold mb-2 label">Workspace</div>
+            <nav class="nav flex-column gap-1">
+              <a class="nav-link active" href="links.html"><i class="bi bi-link-45deg me-2"></i><span class="label">Links</span></a>
+              <a class="nav-link " href="analytics.html"><i class="bi bi-bar-chart-line me-2"></i><span class="label">Analytics</span></a>
+              <a class="nav-link" href="qr-codes.html"><i class="bi bi-qr-code me-2"></i><span class="label">QR Codes</span></a>
+              <a class="nav-link" href="team.html"><i class="bi bi-people me-2"></i><span class="label">Team</span></a>
+              <a class="nav-link" href="pricing.html"><i class="bi bi-stars me-2"></i><span class="label">Upgrade</span></a>
+            </nav>
+            <hr>
+            <div class="small text-uppercase muted fw-semibold mb-2 label">Account</div>
+            <nav class="nav flex-column gap-1">
+              <a class="nav-link" href="settings.html"><i class="bi bi-gear me-2"></i><span class="label">Settings</span></a>
+              <a class="nav-link" href="login.html"><i class="bi bi-box-arrow-right me-2"></i><span class="label">Log out</span></a>
+            </nav>
+          </div>
+          <div class="position-absolute bottom-0 p-3 w-100 user-info">
+            <div class="d-flex align-items-center gap-2">
+              <div class="rounded-circle bg-primary-subtle text-primary fw-bold d-flex align-items-center justify-content-center" style="width:36px;height:36px;">BN</div>
+              <div><div class="fw-semibold small">Demo User</div><div class="muted small">Free plan</div></div>
+            </div>
+          </div>
+        </aside>
+        <main class="main-content">
+<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+  <div><h2 class="fw-bold mb-1">Links</h2><p class="muted mb-0">Create and manage your short URLs.</p></div>
+  <div class="d-flex gap-2">
+    <button class="btn btn-outline-secondary" id="bulkActionsBtn" style="display: none;"><i class="bi bi-trash me-1"></i>Delete selected</button>
+    <button class="btn btn-outline-secondary" id="bulkTagBtn" style="display: none;"><i class="bi bi-tag me-1"></i>Tag selected</button>
+    <button class="btn btn-brand" data-bs-toggle="modal" data-bs-target="#createLinkModal"><i class="bi bi-plus-lg me-1"></i>Create link</button>
+  </div>
+</div>
+
+<div class="card-soft p-3 mb-4">
+  <div class="row g-2 align-items-end">
+    <div class="col-md-4"><input type="text" class="form-control" id="searchLinks" placeholder="Search links..."></div>
+    <div class="col-md-2"><select class="form-select" id="filterTags"><option value="">All tags</option><option value="campaign">Campaign</option><option value="product">Product</option><option value="social">Social</option></select></div>
+    <div class="col-md-2"><select class="form-select" id="filterStatus"><option value="">All status</option><option value="active">Active</option><option value="expired">Expired</option><option value="paused">Paused</option></select></div>
+    <div class="col-md-2"><select class="form-select" id="sortLinks"><option value="created_desc">Newest first</option><option value="created_asc">Oldest first</option><option value="clicks_desc">Most clicks</option><option value="clicks_asc">Least clicks</option></select></div>
+    <div class="col-md-2"><button class="btn btn-light border w-100" id="applyFilters">Filter</button></div>
+  </div>
+</div>
+
+<div class="card-soft table-card">
+  <div class="table-responsive">
+    <table class="table align-middle mb-0" id="linksTable">
+      <thead>
+        <tr>
+          <th style="width: 40px;"><input type="checkbox" id="selectAllLinks" class="form-check-input"></th>
+          <th>Short link</th>
+          <th>Title</th>
+          <th>Destination</th>
+          <th>Clicks</th>
+          <th>Status</th>
+          <th>Created</th>
+          <th style="width: 50px;"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-tags="campaign" data-status="active">
+          <td><input type="checkbox" class="form-check-input link-checkbox" value="1"></td>
+          <td><div class="fw-semibold text-primary">linkly.to/summer</div><small class="muted">Campaign</small></td>
+          <td>Summer Sale 2026</td>
+          <td class="text-truncate" style="max-width:280px">https://example.com/summer-sale-2026</td>
+          <td class="fw-semibold">12,482</td>
+          <td><span class="badge bg-success-subtle text-success">Active</span></td>
+          <td class="muted">Today</td>
+          <td><div class="dropdown"><button class="btn btn-sm btn-light" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></button><ul class="dropdown-menu dropdown-menu-end"><li><a class="dropdown-item" href="#" data-action="edit"><i class="bi bi-pencil me-2"></i>Edit</a></li><li><a class="dropdown-item" href="#" data-action="qr"><i class="bi bi-qr-code me-2"></i>QR Code</a></li><li><a class="dropdown-item" href="#" data-action="analytics"><i class="bi bi-graph-up me-2"></i>Analytics</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item text-danger" href="#" data-action="delete"><i class="bi bi-trash me-2"></i>Delete</a></li></ul></div></td>
+        </tr>
+        <tr data-tags="product" data-status="active">
+          <td><input type="checkbox" class="form-check-input link-checkbox" value="2"></td>
+          <td><div class="fw-semibold text-primary">linkly.to/product</div><small class="muted">Product</small></td>
+          <td>New Product Launch</td>
+          <td class="text-truncate" style="max-width:280px">https://example.com/products/new-launch</td>
+          <td class="fw-semibold">8,104</td>
+          <td><span class="badge bg-success-subtle text-success">Active</span></td>
+          <td class="muted">Yesterday</td>
+          <td><div class="dropdown"><button class="btn btn-sm btn-light" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></button><ul class="dropdown-menu dropdown-menu-end"><li><a class="dropdown-item" href="#" data-action="edit"><i class="bi bi-pencil me-2"></i>Edit</a></li><li><a class="dropdown-item" href="#" data-action="qr"><i class="bi bi-qr-code me-2"></i>QR Code</a></li><li><a class="dropdown-item" href="#" data-action="analytics"><i class="bi bi-graph-up me-2"></i>Analytics</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item text-danger" href="#" data-action="delete"><i class="bi bi-trash me-2"></i>Delete</a></li></ul></div></td>
+        </tr>
+        <tr data-tags="social" data-status="active">
+          <td><input type="checkbox" class="form-check-input link-checkbox" value="3"></td>
+          <td><div class="fw-semibold text-primary">linkly.to/instagram</div><small class="muted">Social</small></td>
+          <td>Instagram Profile</td>
+          <td class="text-truncate" style="max-width:280px">https://example.com/instagram-profile</td>
+          <td class="fw-semibold">5,692</td>
+          <td><span class="badge bg-success-subtle text-success">Active</span></td>
+          <td class="muted">Sep 06</td>
+          <td><div class="dropdown"><button class="btn btn-sm btn-light" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></button><ul class="dropdown-menu dropdown-menu-end"><li><a class="dropdown-item" href="#" data-action="edit"><i class="bi bi-pencil me-2"></i>Edit</a></li><li><a class="dropdown-item" href="#" data-action="qr"><i class="bi bi-qr-code me-2"></i>QR Code</a></li><li><a class="dropdown-item" href="#" data-action="analytics"><i class="bi bi-graph-up me-2"></i>Analytics</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item text-danger" href="#" data-action="delete"><i class="bi bi-trash me-2"></i>Delete</a></li></ul></div></td>
+        </tr>
+        <tr data-tags="campaign" data-status="expired">
+          <td><input type="checkbox" class="form-check-input link-checkbox" value="4"></td>
+          <td><div class="fw-semibold text-primary">linkly.to/blackfriday</div><small class="muted">Campaign</small></td>
+          <td>Black Friday 2025</td>
+          <td class="text-truncate" style="max-width:280px">https://example.com/black-friday-deals</td>
+          <td class="fw-semibold">45,210</td>
+          <td><span class="badge bg-warning-subtle text-warning">Expired</span></td>
+          <td class="muted">Nov 25, 2025</td>
+          <td><div class="dropdown"><button class="btn btn-sm btn-light" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></button><ul class="dropdown-menu dropdown-menu-end"><li><a class="dropdown-item" href="#" data-action="edit"><i class="bi bi-pencil me-2"></i>Edit</a></li><li><a class="dropdown-item" href="#" data-action="qr"><i class="bi bi-qr-code me-2"></i>QR Code</a></li><li><a class="dropdown-item" href="#" data-action="analytics"><i class="bi bi-graph-up me-2"></i>Analytics</a></li><li><hr class="dropdown-divider"></li><li><a class="dropdown-item text-danger" href="#" data-action="delete"><i class="bi bi-trash me-2"></i>Delete</a></li></ul></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-soft p-3 border-top">
+    <div class="d-flex justify-content-between align-items-center">
+      <span class="muted small" id="linksCount">Showing 4 links</span>
+      <nav><ul class="pagination pagination-sm mb-0"><li class="page-item disabled"><span class="page-link">Previous</span></li><li class="page-item active"><span class="page-link">1</span></li><li class="page-item"><a class="page-link" href="#">2</a></li><li class="page-item"><a class="page-link" href="#">3</a></li><li class="page-item"><span class="page-link">...</span></li><li class="page-item"><a class="page-link" href="#">12</a></li><li class="page-item"><a class="page-link" href="#">Next</a></li></ul></nav>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="createLinkModal" tabindex="-1" aria-labelledby="createLinkModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content card-soft border-0 shadow-lg">
+      <div class="modal-header border-0 pb-0">
+        <h5 class="modal-title fw-bold" id="createLinkModalLabel">Create new link</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form id="createLinkForm">
+        <div class="modal-body pt-0">
+          <div class="row g-3">
+            <div class="col-12">
+              <label class="form-label fw-semibold">Destination URL <span class="text-danger">*</span></label>
+              <input type="url" class="form-control" id="modalLongUrl" placeholder="https://example.com/your-long-url" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Custom short link</label>
+              <div class="input-group">
+                <span class="input-group-text">linkly.to/</span>
+                <input type="text" class="form-control" id="customSlug" placeholder="my-custom-link" pattern="[a-zA-Z0-9_-]+" maxlength="50">
+              </div>
+              <div class="form-text">Leave empty for auto-generated. Letters, numbers, hyphens, underscores only.</div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Domain</label>
+              <select class="form-select" id="domainSelect">
+                <option value="linkly.to" selected>linkly.to</option>
+                <option value="lnk.ly">lnk.ly</option>
+                <option value="custom" disabled>Add custom domain...</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="form-label fw-semibold">Title</label>
+              <input type="text" class="form-control" id="linkTitle" placeholder="Summer Campaign 2026">
+              <div class="form-text">Internal name to help you identify this link.</div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Tags</label>
+              <input type="text" class="form-control" id="linkTags" placeholder="marketing, summer, sale" data-role="tagsinput">
+              <div class="form-text">Comma-separated tags for organization.</div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Expiration date</label>
+              <input type="date" class="form-control" id="expirationDate">
+              <div class="form-text">Link will stop working after this date.</div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Max clicks</label>
+              <input type="number" class="form-control" id="maxClicks" placeholder="10000" min="1">
+              <div class="form-text">Link expires after this many clicks.</div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-check form-switch mt-4">
+                <input class="form-check-input" type="checkbox" id="passwordProtect" role="switch">
+                <label class="form-check-label fw-semibold" for="passwordProtect">Password protect</label>
+              </div>
+            </div>
+            <div class="col-md-6" id="passwordField" style="display: none;">
+              <label class="form-label fw-semibold">Password</label>
+              <div class="input-group">
+                <input type="password" class="form-control" id="linkPassword" placeholder="Enter password">
+                <button class="btn btn-outline-secondary" type="button" data-toggle-password="linkPassword"><i class="bi bi-eye"></i></button>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="utmBuilderToggle" role="switch">
+                <label class="form-check-label fw-semibold" for="utmBuilderToggle">Add UTM parameters</label>
+              </div>
+            </div>
+            <div class="col-12" id="utmFields" style="display: none;">
+              <div class="row g-2">
+                <div class="col-md-4"><input type="text" class="form-control" id="utmSource" placeholder="utm_source (e.g., newsletter)"></div>
+                <div class="col-md-4"><input type="text" class="form-control" id="utmMedium" placeholder="utm_medium (e.g., email)"></div>
+                <div class="col-md-4"><input type="text" class="form-control" id="utmCampaign" placeholder="utm_campaign (e.g., summer_sale)"></div>
+                <div class="col-md-4"><input type="text" class="form-control" id="utmTerm" placeholder="utm_term (optional)"></div>
+                <div class="col-md-4"><input type="text" class="form-control" id="utmContent" placeholder="utm_content (optional)"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer border-0 pt-0">
+          <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-brand"><i class="bi bi-link-45deg me-1"></i>Create link</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="qrCodeModal" tabindex="-1" aria-labelledby="qrCodeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-dialog-centered">
+    <div class="modal-content card-soft border-0 shadow-lg">
+      <div class="modal-header border-0 pb-0">
+        <h5 class="modal-title fw-bold" id="qrCodeModalLabel">QR Code</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body pt-0 text-center">
+        <div id="qrCodeContainer" class="mb-3"></div>
+        <div class="fw-semibold text-primary" id="qrShortUrl"></div>
+        <div class="mt-3">
+          <button class="btn btn-outline-primary" id="downloadQR"><i class="bi bi-download me-1"></i>Download PNG</button>
+          <button class="btn btn-outline-secondary ms-2" id="copyQR"><i class="bi bi-copy me-1"></i>Copy Image</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="editLinkModal" tabindex="-1" aria-labelledby="editLinkModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content card-soft border-0 shadow-lg">
+      <div class="modal-header border-0 pb-0">
+        <h5 class="modal-title fw-bold" id="editLinkModalLabel">Edit link</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form id="editLinkForm">
+        <input type="hidden" id="editLinkId">
+        <div class="modal-body pt-0">
+          <div class="row g-3">
+            <div class="col-12">
+              <label class="form-label fw-semibold">Destination URL <span class="text-danger">*</span></label>
+              <input type="url" class="form-control" id="editLongUrl" placeholder="https://example.com/your-long-url" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Custom short link</label>
+              <div class="input-group">
+                <span class="input-group-text">linkly.to/</span>
+                <input type="text" class="form-control" id="editCustomSlug" placeholder="my-custom-link" pattern="[a-zA-Z0-9_-]+" maxlength="50">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Domain</label>
+              <select class="form-select" id="editDomainSelect">
+                <option value="linkly.to" selected>linkly.to</option>
+                <option value="lnk.ly">lnk.ly</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="form-label fw-semibold">Title</label>
+              <input type="text" class="form-control" id="editLinkTitle" placeholder="Summer Campaign 2026">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Tags</label>
+              <input type="text" class="form-control" id="editLinkTags" placeholder="marketing, summer, sale">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Expiration date</label>
+              <input type="date" class="form-control" id="editExpirationDate">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Max clicks</label>
+              <input type="number" class="form-control" id="editMaxClicks" placeholder="10000" min="1">
+            </div>
+            <div class="col-md-6">
+              <div class="form-check form-switch mt-4">
+                <input class="form-check-input" type="checkbox" id="editPasswordProtect" role="switch">
+                <label class="form-check-label fw-semibold" for="editPasswordProtect">Password protect</label>
+              </div>
+            </div>
+            <div class="col-md-6" id="editPasswordField" style="display: none;">
+              <label class="form-label fw-semibold">Password</label>
+              <div class="input-group">
+                <input type="password" class="form-control" id="editLinkPassword" placeholder="Enter password">
+                <button class="btn btn-outline-secondary" type="button" data-toggle-password="editLinkPassword"><i class="bi bi-eye"></i></button>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-check form-switch mt-4">
+                <input class="form-check-input" type="checkbox" id="editLinkActive" role="switch" checked>
+                <label class="form-check-label fw-semibold" for="editLinkActive">Link active</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer border-0 pt-0">
+          <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-brand"><i class="bi bi-save me-1"></i>Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/app.js"></script></body></html>
