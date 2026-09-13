@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InviteController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\DashboardController;
@@ -10,33 +11,36 @@ use App\Http\Controllers\DashboardController;
 
 
 
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/login', [HomeController::class, 'login'])->name('login');
+Route::get('/signup', [HomeController::class, 'signup'])->name('signup');
+Route::get('/features', [HomeController::class, 'features'])->name('features');
+Route::get('/pricing', [HomeController::class, 'pricing'])->name('pricing');
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+// Route::middleware('auth')->group(function () {
+//     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
-    // invite routes
-    Route::middleware(['role:Super Admin,Admin'])->group(function () {
-        Route::get('/invite', [InviteController::class, 'index'])->name('invite.index');
-        Route::post('/invite-store', [InviteController::class, 'store'])->name('invite.store');
-    });
+//     // invite routes
+//     Route::middleware(['role:Super Admin,Admin'])->group(function () {
+//         Route::get('/invite', [InviteController::class, 'index'])->name('invite.index');
+//         Route::post('/invite-store', [InviteController::class, 'store'])->name('invite.store');
+//     });
 
-    Route::middleware(['role:Admin,Member'])->group(function () {
-        Route::get('/link', [LinkController::class, 'index'])->name('create.link');
-        Route::post('/store-link', [LinkController::class, 'store'])->name('store.link');
+//     Route::middleware(['role:Admin,Member'])->group(function () {
+//         Route::get('/link', [LinkController::class, 'index'])->name('create.link');
+//         Route::post('/store-link', [LinkController::class, 'store'])->name('store.link');
 
-    });
-});
+//     });
+// });
 
-require __DIR__.'/auth.php';
+// require __DIR__.'/auth.php';
 
-Route::get('/{url_id}', [LinkController::class, 'redirectShortUrl'])->name('short.url');
+// Route::get('/{url_id}', [LinkController::class, 'redirectShortUrl'])->name('short.url');
 
 
