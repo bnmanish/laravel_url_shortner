@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QR Codes — Knot</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="dash-shell">
+
+  <!-- Sidebar -->
+  <aside class="dash-sidebar" id="dashSidebar">
+    <a class="knot-logo mb-5" href="index.html">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="12.5" width="15" height="9" rx="4.5" transform="rotate(-38 3 12.5)" stroke="currentColor" stroke-width="2.3"/>
+        <rect x="14" y="9.5" width="15" height="9" rx="4.5" transform="rotate(-38 14 9.5)" stroke="currentColor" stroke-width="2.3"/>
+      </svg>
+      Knot
+    </a>
+
+    <nav class="d-grid gap-1 mb-auto">
+      <a class="dash-nav-link" href="dashboard.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="11" width="8" height="10" rx="1.5"/><rect x="3" y="14" width="8" height="7" rx="1.5"/></svg>
+        Links
+      </a>
+      <a class="dash-nav-link" href="dashboard-analytics.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>
+        Analytics
+      </a>
+      <a class="dash-nav-link active" href="dashboard-qr.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><path d="M14 15h6M17 12v6"/></svg>
+        QR codes
+      </a>
+      <a class="dash-nav-link" href="dashboard-bio.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.2"/><path d="M5 21c0-4 3-6.5 7-6.5s7 2.5 7 6.5"/></svg>
+        Bio page
+      </a>
+      <a class="dash-nav-link" href="dashboard-team.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3-6 7-6s7 2.7 7 6"/><circle cx="18" cy="9" r="2.4"/><path d="M17 14c2.8.3 5 2.4 5 5.5"/></svg>
+        Team
+      </a>
+      <a class="dash-nav-link" href="dashboard-settings.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 13.5a1.7 1.7 0 0 0 .34 1.87l.06.06a2.1 2.1 0 1 1-2.96 2.96l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1.03 1.55V20a2.1 2.1 0 1 1-4.2 0v-.09a1.7 1.7 0 0 0-1.1-1.55 1.7 1.7 0 0 0-.34-1.87l-.06-.06A2.1 2.1 0 1 1 8.2 4.15l.06.06a1.7 1.7 0 0 0 1.87.34H10.2a1.7 1.7 0 0 0 1.03-1.55V3a2.1 2.1 0 1 1 4.2 0v.09a1.7 1.7 0 0 0 1.03 1.55 1.7 1.7 0 0 0 1.87-.34l.06-.06a2.1 2.1 0 1 1 2.96 2.96l-.06.06a1.7 1.7 0 0 0-.34 1.87V9.2a1.7 1.7 0 0 0 1.55 1.03H21a2.1 2.1 0 1 1 0 4.2h-.09a1.7 1.7 0 0 0-1.55 1.03Z"/></svg>
+        Settings
+      </a>
+    </nav>
+
+    <div class="divider pt-3 mt-3" style="border-color:var(--line-dark);">
+      <div class="d-flex align-items-center gap-2">
+        <div class="rounded-circle" style="width:32px;height:32px;background:var(--rope);flex-shrink:0;"></div>
+        <div class="text-truncate">
+          <div class="text-white" style="font-size:0.88rem;">Priya Menon</div>
+          <div class="text-truncate" style="font-size:0.75rem;">Fernway workspace</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="dash-main">
+    <div class="dash-topbar">
+      <button class="btn btn-outline-ink btn-sm d-lg-none" id="sidebarToggle" type="button">Menu</button>
+      <input type="search" class="form-control" style="max-width:320px;" placeholder="Search QR codes...">
+      <div class="ms-auto d-flex gap-2">
+        <button class="btn btn-outline-ink btn-sm" data-bs-toggle="modal" data-bs-target="#createQrModal">+ Generate QR</button>
+      </div>
+    </div>
+
+    <div class="dash-content">
+
+      <div class="d-flex justify-content-between align-items-end mb-4 flex-wrap gap-2">
+        <div>
+          <h2 class="h3 mb-1">QR codes</h2>
+          <p class="text-soft mb-0">Printable QR codes for your short links, styled with your brand.</p>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="row gy-3 mb-4">
+        <div class="col-6 col-lg-3">
+          <div class="stat-tile">
+            <div class="text-faint mb-1" style="font-size:0.82rem;">Total QR codes</div>
+            <div class="stat-num" style="font-size:1.9rem;">24</div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat-tile">
+            <div class="text-faint mb-1" style="font-size:0.82rem;">Total scans</div>
+            <div class="stat-num" style="font-size:1.9rem;">1,096</div>
+            <div class="text-moss" style="font-size:0.8rem;">&#8599; 4.1% vs last week</div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat-tile">
+            <div class="text-faint mb-1" style="font-size:0.82rem;">Scans today</div>
+            <div class="stat-num" style="font-size:1.9rem;">47</div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat-tile">
+            <div class="text-faint mb-1" style="font-size:0.82rem;">Custom branded</div>
+            <div class="stat-num" style="font-size:1.9rem">8</div>
+            <div class="text-faint" style="font-size:0.8rem;">with logo overlay</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- QR grid -->
+      <div class="row gy-3 mb-4">
+        <div class="col-lg-8">
+          <div class="stat-tile p-0">
+            <div class="d-flex justify-content-between align-items-center p-3 border-bottom" style="border-color:var(--line)!important;">
+              <h6 class="mb-0">All QR codes</h6>
+              <select class="form-select form-select-sm" style="width:auto;">
+                <option>All links</option>
+                <option>Spring launch</option>
+                <option>Newsletter</option>
+                <option>In-store</option>
+              </select>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-links mb-0">
+                <thead>
+                  <tr class="text-faint" style="font-size:0.8rem;">
+                    <th class="ps-3">QR Code</th>
+                    <th>Linked to</th>
+                    <th>Scans</th>
+                    <th>Created</th>
+                    <th class="text-end">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="ps-3">
+                      <div class="d-flex align-items-center gap-2">
+                        <svg viewBox="0 0 60 60" width="36" height="36" style="flex-shrink:0;">
+                          <rect width="60" height="60" fill="var(--paper-dim)"/>
+                          <rect x="8" y="8" width="14" height="14" fill="var(--ink)"/>
+                          <rect x="38" y="8" width="14" height="14" fill="var(--ink)"/>
+                          <rect x="8" y="38" width="14" height="14" fill="var(--ink)"/>
+                          <rect x="14" y="14" width="4" height="4" fill="var(--paper-dim)"/>
+                          <rect x="44" y="14" width="4" height="4" fill="var(--paper-dim)"/>
+                          <rect x="14" y="44" width="4" height="4" fill="var(--paper-dim)"/>
+                          <rect x="24" y="24" width="6" height="6" fill="var(--rope)"/>
+                        </svg>
+                        <div class="link-row-url">knot.to/spring-ig-bio</div>
+                      </div>
+                    </td>
+                    <td class="text-soft">Instagram bio</td>
+                    <td class="fw-semibold">6,714</td>
+                    <td class="text-soft">Sep 4</td>
+                    <td class="text-end">
+                      <button class="btn btn-sm btn-outline-ink" data-copy-text="https://knot.to/spring-ig-bio">Copy</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="ps-3">
+                      <div class="d-flex align-items-center gap-2">
+                        <svg viewBox="0 0 60 60" width="36" height="36" style="flex-shrink:0;">
+                          <rect width="60" height="60" fill="var(--paper-dim)"/>
+                          <rect x="8" y="8" width="14" height="14" fill="var(--ink)"/>
+                          <rect x="38" y="8" width="14" height="14" fill="var(--ink)"/>
+                          <rect x="8" y="38" width="14" height="14" fill="var(--ink)"/>
+                          <rect x="14" y="14" width="4" height="4" fill="var(--paper-dim)"/>
+                          <rect x="44" y="14" width="4" height="4" fill="var(--paper-dim)"/>
+                          <rect x="14" y="44" width="4" height="4" fill="var(--paper-dim)"/>
+                          <rect x="24" y="24" width="6" height="6" fill="var(--rope)"/>
+                        </svg>
+                        <div class="link-row-url">knot.to/spring-launch</div>
+                      </div>
+                    </td>
+                    <td class="text-soft">Spring launch</td>
+                    <td class="fw-semibold">4,208</td>
+                    <td class="text-soft">Sep 2</td>
+                    <td class="text-end">
+                      <button class="btn btn-sm btn-outline-ink" data-copy-text="https://knot.to/spring-launch">Copy</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="ps-3">
+                      <div class="d-flex align-items-center gap-2">
+                        <svg viewBox="0 0 60 60" width="36" height="36" style="flex-shrink:0;">
+                          <rect width="60" height="60" fill="var(--paper-dim)"/>
+                          <rect x="8" y="8" width="14" height="14" fill="var(--ink)"/>
+                          <rect x="38" y="8" width="14" height="14" fill="var(--ink)"/>
+                          <rect x="8" y="38" width="14" height="14" fill="var(--ink)"/>
+                          <rect x="14" y="14" width="4" height="4" fill="var(--paper-dim)"/>
+                          <rect x="44" y="14" width="4" height="4" fill="var(--paper-dim)"/>
+                          <rect x="14" y="44" width="4" height="4" fill="var(--paper-dim)"/>
+                          <rect x="24" y="24" width="6" height="6" fill="var(--rope)"/>
+                        </svg>
+                        <div class="link-row-url">knot.to/store-flyer</div>
+                      </div>
+                    </td>
+                    <td class="text-soft">In-store flyer</td>
+                    <td class="fw-semibold">537</td>
+                    <td class="text-soft">Sep 11</td>
+                    <td class="text-end">
+                      <button class="btn btn-sm btn-outline-ink" data-copy-text="https://knot.to/store-flyer">Copy</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="ps-3">
+                      <div class="d-flex align-items-center gap-2">
+                        <svg viewBox="0 0 60 60" width="36" height="36" style="flex-shrink:0;">
+                          <rect width="60" height="60" fill="var(--paper-dim)"/>
+                          <rect x="8" y="8" width="14" height="14" fill="var(--ink)"/>
+                          <rect x="38" y="8" width="14" height="14" fill="var(--ink)"/>
+                          <rect x="8" y="38" width="14" height="14" fill="var(--ink)"/>
+                          <rect x="14" y="14" width="4" height="4" fill="var(--paper-dim)"/>
+                          <rect x="44" y="14" width="4" height="4" fill="var(--paper-dim)"/>
+                          <rect x="14" y="44" width="4" height="4" fill="var(--paper-dim)"/>
+                          <rect x="24" y="24" width="6" height="6" fill="var(--rope)"/>
+                        </svg>
+                        <div class="link-row-url">knot.to/fall-preview</div>
+                      </div>
+                    </td>
+                    <td class="text-soft">Fall preview</td>
+                    <td class="fw-semibold">812</td>
+                    <td class="text-soft">Sep 9</td>
+                    <td class="text-end">
+                      <button class="btn btn-sm btn-outline-ink" data-copy-text="https://knot.to/fall-preview">Copy</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- QR customization preview -->
+        <div class="col-lg-4">
+          <div class="stat-tile h-100">
+            <h6 class="mb-3">Quick generate</h6>
+            <div class="mb-3">
+              <label class="form-label">Link</label>
+              <select class="form-select mb-2">
+                <option>knot.to/spring-ig-bio</option>
+                <option>knot.to/spring-launch</option>
+                <option>knot.to/spring-email</option>
+                <option>knot.to/store-flyer</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Size</label>
+              <select class="form-select">
+                <option>200 x 200</option>
+                <option>300 x 300</option>
+                <option>500 x 500</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Color</label>
+              <div class="d-flex gap-2">
+                <div class="rounded-circle" style="width:28px;height:28px;background:var(--ink);border:2px solid var(--rope);" title="Ink"></div>
+                <div class="rounded-circle" style="width:28px;height:28px;background:var(--rope);border:2px solid var(--rope);" title="Rope"></div>
+                <div class="rounded-circle" style="width:28px;height:28px;background:var(--moss);border:2px solid var(--rope);" title="Moss"></div>
+                <div class="rounded-circle" style="width:28px;height:28px;background:var(--line-dark);border:2px solid var(--rope);" title="Dark"></div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="logoOverlay">
+                <label class="form-check-label" for="logoOverlay">Add logo overlay</label>
+              </div>
+            </div>
+            <button class="btn btn-rope w-100" data-bs-toggle="modal" data-bs-target="#createQrModal">Generate QR</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- QR gallery -->
+      <div class="stat-tile">
+        <h6 class="mb-3">QR gallery — recent codes</h6>
+        <div class="row gy-3">
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="text-center p-3 border rounded" style="border-color:var(--line);">
+              <svg viewBox="0 0 120 120" width="100" height="100" class="mx-auto mb-2">
+                <rect width="120" height="120" fill="var(--paper-dim)"/>
+                <rect x="16" y="16" width="28" height="28" fill="var(--ink)"/>
+                <rect x="76" y="16" width="28" height="28" fill="var(--ink)"/>
+                <rect x="16" y="76" width="28" height="28" fill="var(--ink)"/>
+                <rect x="24" y="24" width="6" height="6" fill="var(--paper-dim)"/>
+                <rect x="84" y="24" width="6" height="6" fill="var(--paper-dim)"/>
+                <rect x="24" y="84" width="6" height="6" fill="var(--paper-dim)"/>
+                <rect x="36" y="36" width="10" height="10" fill="var(--rope)"/>
+                <rect x="82" y="36" width="10" height="10" fill="var(--ink)"/>
+                <rect x="36" y="82" width="10" height="10" fill="var(--ink)"/>
+                <rect x="50" y="50" width="8" height="8" fill="var(--ink)"/>
+              </svg>
+              <div class="link-row-url" style="font-size:0.75rem;">spring-ig-bio</div>
+              <div class="text-faint" style="font-size:0.75rem;">6,714 scans</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="text-center p-3 border rounded" style="border-color:var(--line);">
+              <svg viewBox="0 0 120 120" width="100" height="100" class="mx-auto mb-2">
+                <rect width="120" height="120" fill="var(--paper-dim)"/>
+                <rect x="16" y="16" width="28" height="28" fill="var(--ink)"/>
+                <rect x="76" y="16" width="28" height="28" fill="var(--ink)"/>
+                <rect x="16" y="76" width="28" height="28" fill="var(--ink)"/>
+                <rect x="24" y="24" width="6" height="6" fill="var(--paper-dim)"/>
+                <rect x="84" y="24" width="6" height="6" fill="var(--paper-dim)"/>
+                <rect x="24" y="84" width="6" height="6" fill="var(--paper-dim)"/>
+                <rect x="36" y="36" width="10" height="10" fill="var(--rope)"/>
+                <rect x="82" y="36" width="10" height="10" fill="var(--ink)"/>
+                <rect x="36" y="82" width="10" height="10" fill="var(--ink)"/>
+                <rect x="50" y="50" width="8" height="8" fill="var(--ink)"/>
+              </svg>
+              <div class="link-row-url" style="font-size:0.75rem;">spring-launch</div>
+              <div class="text-faint" style="font-size:0.75rem;">4,208 scans</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="text-center p-3 border rounded" style="border-color:var(--line);">
+              <svg viewBox="0 0 120 120" width="100" height="100" class="mx-auto mb-2">
+                <rect width="120" height="120" fill="var(--paper-dim)"/>
+                <rect x="16" y="16" width="28" height="28" fill="var(--ink)"/>
+                <rect x="76" y="16" width="28" height="28" fill="var(--ink)"/>
+                <rect x="16" y="76" width="28" height="28" fill="var(--ink)"/>
+                <rect x="24" y="24" width="6" height="6" fill="var(--paper-dim)"/>
+                <rect x="84" y="24" width="6" height="6" fill="var(--paper-dim)"/>
+                <rect x="24" y="84" width="6" height="6" fill="var(--paper-dim)"/>
+                <rect x="36" y="36" width="10" height="10" fill="var(--rope)"/>
+                <rect x="82" y="36" width="10" height="10" fill="var(--ink)"/>
+                <rect x="36" y="82" width="10" height="10" fill="var(--ink)"/>
+                <rect x="50" y="50" width="8" height="8" fill="var(--ink)"/>
+              </svg>
+              <div class="link-row-url" style="font-size:0.75rem;">store-flyer</div>
+              <div class="text-faint" style="font-size:0.75rem;">537 scans</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="text-center p-3 border rounded" style="border-color:var(--line);">
+              <svg viewBox="0 0 120 120" width="100" height="100" class="mx-auto mb-2">
+                <rect width="120" height="120" fill="var(--paper-dim)"/>
+                <rect x="16" y="16" width="28" height="28" fill="var(--ink)"/>
+                <rect x="76" y="16" width="28" height="28" fill="var(--ink)"/>
+                <rect x="16" y="76" width="28" height="28" fill="var(--ink)"/>
+                <rect x="24" y="24" width="6" height="6" fill="var(--paper-dim)"/>
+                <rect x="84" y="24" width="6" height="6" fill="var(--paper-dim)"/>
+                <rect x="24" y="84" width="6" height="6" fill="var(--paper-dim)"/>
+                <rect x="36" y="36" width="10" height="10" fill="var(--rope)"/>
+                <rect x="82" y="36" width="10" height="10" fill="var(--ink)"/>
+                <rect x="36" y="82" width="10" height="10" fill="var(--ink)"/>
+                <rect x="50" y="50" width="8" height="8" fill="var(--ink)"/>
+              </svg>
+              <div class="link-row-url" style="font-size:0.75rem;">fall-preview</div>
+              <div class="text-faint" style="font-size:0.75rem;">812 scans</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<!-- Create QR modal -->
+<div class="modal fade" id="createQrModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content" style="border-radius:var(--radius-md);">
+      <div class="modal-header">
+        <h5 class="modal-title">Generate QR code</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label class="form-label">Short link</label>
+          <select class="form-select">
+            <option>knot.to/spring-ig-bio</option>
+            <option>knot.to/spring-launch</option>
+            <option>knot.to/spring-email</option>
+            <option>knot.to/store-flyer</option>
+            <option>knot.to/fall-preview</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Size</label>
+          <select class="form-select">
+            <option>200 x 200 px</option>
+            <option>300 x 300 px</option>
+            <option>500 x 500 px</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Foreground color</label>
+          <div class="d-flex gap-2">
+            <div class="rounded-circle" style="width:32px;height:32px;background:var(--ink);border:2px solid var(--rope);"></div>
+            <div class="rounded-circle" style="width:32px;height:32px;background:var(--rope);border:2px solid var(--rope);"></div>
+            <div class="rounded-circle" style="width:32px;height:32px;background:var(--moss);border:2px solid var(--rope);"></div>
+            <div class="rounded-circle" style="width:32px;height:32px;background:var(--line-dark);border:2px solid var(--rope);"></div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="qrLogo">
+            <label class="form-check-label" for="qrLogo">Add logo overlay</label>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-ink" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-rope">Generate</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
