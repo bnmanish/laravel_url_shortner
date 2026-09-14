@@ -7,17 +7,20 @@
     <meta name="description" content="@yield('meta_description')">
     <link rel="stylesheet" href="{{ url('/') }}/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url('/') }}/assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="{{url('assets/logo/favicon.png')}}">
     @stack('styles')
+    <style>
+        .knot-logo{
+            width: 123px;
+        }
+    </style>
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg knot-nav sticky-top">
         <div class="container">
             <a class="knot-logo" href="{{route('home')}}">
-                <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="3" y="12.5" width="15" height="9" rx="4.5" transform="rotate(-38 3 12.5)" stroke="currentColor" stroke-width="2.3" />
-                    <rect x="14" y="9.5" width="15" height="9" rx="4.5" transform="rotate(-38 14 9.5)" stroke="currentColor" stroke-width="2.3" />
-                </svg>Knot
+                <img class="w-100" src="{{url('assets/logo/knot.png')}}" alt="knot">
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
                 <span class="navbar-toggler-icon"></span>
@@ -48,13 +51,7 @@
             <div class="row gy-4">
                 <div class="col-lg-4">
                     <a class="knot-logo text-white mb-3 d-inline-flex" href="index.html">
-                        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="3" y="12.5" width="15" height="9" rx="4.5"
-                                transform="rotate(-38 3 12.5)" stroke="currentColor" stroke-width="2.3" />
-                            <rect x="14" y="9.5" width="15" height="9" rx="4.5"
-                                transform="rotate(-38 14 9.5)" stroke="currentColor" stroke-width="2.3" />
-                        </svg>
-                        Knot
+                        <img class="w-100" src="{{url('assets/logo/knot-light-logo.png')}}" alt="knot">
                     </a>
                     <p style="max-width:32ch;">A short link is still a promise. Knot keeps it, tracks it, and brings it
                         home.</p>
