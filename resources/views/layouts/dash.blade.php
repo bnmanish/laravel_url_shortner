@@ -23,14 +23,8 @@
 
         <!-- Sidebar -->
         <aside class="dash-sidebar" id="dashSidebar">
-            <a class="knot-logo mb-5" href="index.html">
-                <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="3" y="12.5" width="15" height="9" rx="4.5" transform="rotate(-38 3 12.5)"
-                        stroke="currentColor" stroke-width="2.3" />
-                    <rect x="14" y="9.5" width="15" height="9" rx="4.5" transform="rotate(-38 14 9.5)"
-                        stroke="currentColor" stroke-width="2.3" />
-                </svg>
-                Knot
+            <a class="knot-logo mb-5" href="{{route('dashboard')}}">
+                <img class="w-100" src="{{url('assets/logo/knot-light-logo.png')}}" alt="knot">
             </a>
 
             <nav class="d-grid gap-1 mb-auto">
@@ -43,13 +37,13 @@
                     </svg>
                     Links
                 </a>
-                <a class="dash-nav-link active" href="dashboard-analytics.html">
+                <a class="dash-nav-link active" href="{{route('analytics')}}">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                         <path d="M4 20V10M12 20V4M20 20v-7" />
                     </svg>
                     Analytics
                 </a>
-                <a class="dash-nav-link" href="dashboard-qr.html">
+                <a class="dash-nav-link" href="{{route('qrcode')}}">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                         <rect x="4" y="4" width="6" height="6" />
                         <rect x="14" y="4" width="6" height="6" />
@@ -58,7 +52,7 @@
                     </svg>
                     QR codes
                 </a>
-                <a class="dash-nav-link" href="dashboard-bio.html">
+                <a class="dash-nav-link" href="{{route('bio')}}">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                         <circle cx="12" cy="8" r="3.2" />
                         <path d="M5 21c0-4 3-6.5 7-6.5s7 2.5 7 6.5" />

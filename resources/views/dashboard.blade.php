@@ -1,5 +1,5 @@
 @extends('layouts.dash')
-@section('title', 'Knot — Shorten, brand, and track every link')
+@section('title', 'Knot — QRCode Shorten, brand, and track every link')
 @section('meta_description', 'Knot — Shorten, brand, and track every link')
 @section('content')
 {{-- Page-specific CSS --}}

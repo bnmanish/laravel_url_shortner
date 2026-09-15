@@ -22,4 +22,16 @@ class DashboardController extends Controller
         // return view('dashboard',['data'=>$data]);
         return view('dashboard');
     }
+
+    public function analytics(){
+        return view('analytics');
+    }
+
+    public function qrcode(){
+        return view('qrcode');
+    }
+
+    public function bio(){
+        return view('bio');
+    }
 }

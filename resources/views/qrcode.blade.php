@@ -1,74 +1,10 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>QR Codes — Knot</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-
-<div class="dash-shell">
-
-  <!-- Sidebar -->
-  <aside class="dash-sidebar" id="dashSidebar">
-    <a class="knot-logo mb-5" href="index.html">
-      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="3" y="12.5" width="15" height="9" rx="4.5" transform="rotate(-38 3 12.5)" stroke="currentColor" stroke-width="2.3"/>
-        <rect x="14" y="9.5" width="15" height="9" rx="4.5" transform="rotate(-38 14 9.5)" stroke="currentColor" stroke-width="2.3"/>
-      </svg>
-      Knot
-    </a>
-
-    <nav class="d-grid gap-1 mb-auto">
-      <a class="dash-nav-link" href="dashboard.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="11" width="8" height="10" rx="1.5"/><rect x="3" y="14" width="8" height="7" rx="1.5"/></svg>
-        Links
-      </a>
-      <a class="dash-nav-link" href="dashboard-analytics.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>
-        Analytics
-      </a>
-      <a class="dash-nav-link active" href="dashboard-qr.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><path d="M14 15h6M17 12v6"/></svg>
-        QR codes
-      </a>
-      <a class="dash-nav-link" href="dashboard-bio.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.2"/><path d="M5 21c0-4 3-6.5 7-6.5s7 2.5 7 6.5"/></svg>
-        Bio page
-      </a>
-      <a class="dash-nav-link" href="dashboard-team.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3-6 7-6s7 2.7 7 6"/><circle cx="18" cy="9" r="2.4"/><path d="M17 14c2.8.3 5 2.4 5 5.5"/></svg>
-        Team
-      </a>
-      <a class="dash-nav-link" href="dashboard-settings.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 13.5a1.7 1.7 0 0 0 .34 1.87l.06.06a2.1 2.1 0 1 1-2.96 2.96l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1.03 1.55V20a2.1 2.1 0 1 1-4.2 0v-.09a1.7 1.7 0 0 0-1.1-1.55 1.7 1.7 0 0 0-.34-1.87l-.06-.06A2.1 2.1 0 1 1 8.2 4.15l.06.06a1.7 1.7 0 0 0 1.87.34H10.2a1.7 1.7 0 0 0 1.03-1.55V3a2.1 2.1 0 1 1 4.2 0v.09a1.7 1.7 0 0 0 1.03 1.55 1.7 1.7 0 0 0 1.87-.34l.06-.06a2.1 2.1 0 1 1 2.96 2.96l-.06.06a1.7 1.7 0 0 0-.34 1.87V9.2a1.7 1.7 0 0 0 1.55 1.03H21a2.1 2.1 0 1 1 0 4.2h-.09a1.7 1.7 0 0 0-1.55 1.03Z"/></svg>
-        Settings
-      </a>
-    </nav>
-
-    <div class="divider pt-3 mt-3" style="border-color:var(--line-dark);">
-      <div class="d-flex align-items-center gap-2">
-        <div class="rounded-circle" style="width:32px;height:32px;background:var(--rope);flex-shrink:0;"></div>
-        <div class="text-truncate">
-          <div class="text-white" style="font-size:0.88rem;">Priya Menon</div>
-          <div class="text-truncate" style="font-size:0.75rem;">Fernway workspace</div>
-        </div>
-      </div>
-    </div>
-  </aside>
-
-  <!-- Main -->
-  <main class="dash-main">
-    <div class="dash-topbar">
-      <button class="btn btn-outline-ink btn-sm d-lg-none" id="sidebarToggle" type="button">Menu</button>
-      <input type="search" class="form-control" style="max-width:320px;" placeholder="Search QR codes...">
-      <div class="ms-auto d-flex gap-2">
-        <button class="btn btn-outline-ink btn-sm" data-bs-toggle="modal" data-bs-target="#createQrModal">+ Generate QR</button>
-      </div>
-    </div>
-
+@extends('layouts.dash')
+@section('title', 'Knot — Shorten, brand, and track every link')
+@section('meta_description', 'Knot — Shorten, brand, and track every link')
+@section('content')
+{{-- Page-specific CSS --}}
+@push('styles')
+@endpush
     <div class="dash-content">
 
       <div class="d-flex justify-content-between align-items-end mb-4 flex-wrap gap-2">
@@ -409,8 +345,7 @@
     </div>
   </div>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/app.js"></script>
-</body>
-</html>
+@endsection
+{{-- Page-specific JavaScript --}}
+@push('scripts')
+@endpush

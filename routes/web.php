@@ -18,6 +18,11 @@ Route::get('/features', [HomeController::class, 'features'])->name('features');
 Route::get('/pricing', [HomeController::class, 'pricing'])->name('pricing');
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+Route::get('/analytics', [DashboardController::class, 'analytics'])->name('analytics');
+Route::get('/qrcode', [DashboardController::class, 'qrcode'])->name('qrcode');
+Route::get('/bio', [DashboardController::class, 'bio'])->name('bio');
+
+
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
