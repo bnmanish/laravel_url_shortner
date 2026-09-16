@@ -59,7 +59,7 @@
                     </svg>
                     Bio page
                 </a>
-                <a class="dash-nav-link" href="dashboard-team.html">
+                <a class="dash-nav-link" href="{{route('team')}}">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                         <circle cx="9" cy="8" r="3" />
                         <path d="M2 20c0-3.3 3-6 7-6s7 2.7 7 6" />

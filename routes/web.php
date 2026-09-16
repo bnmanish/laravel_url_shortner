@@ -21,6 +21,7 @@ Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashb
 Route::get('/analytics', [DashboardController::class, 'analytics'])->name('analytics');
 Route::get('/qrcode', [DashboardController::class, 'qrcode'])->name('qrcode');
 Route::get('/bio', [DashboardController::class, 'bio'])->name('bio');
+Route::get('/team', [DashboardController::class, 'team'])->name('team');
 
 
 

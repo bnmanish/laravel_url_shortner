@@ -34,4 +34,8 @@ class DashboardController extends Controller
     public function bio(){
         return view('bio');
     }
+
+    public function team(){
+        return view('team');
+    }
 }
