@@ -1,43 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Careers — Join Knot</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-
-<nav class="navbar navbar-expand-lg knot-nav sticky-top">
-  <div class="container">
-    <a class="knot-logo" href="index.html">
-      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="3" y="12.5" width="15" height="9" rx="4.5" transform="rotate(-38 3 12.5)" stroke="currentColor" stroke-width="2.3"/>
-        <rect x="14" y="9.5" width="15" height="9" rx="4.5" transform="rotate(-38 14 9.5)" stroke="currentColor" stroke-width="2.3"/>
-      </svg>
-      Knot
-    </a>
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="nav">
-      <ul class="navbar-nav mx-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html">Product</a></li>
-        <li class="nav-item"><a class="nav-link" href="features.html">Features</a></li>
-        <li class="nav-item"><a class="nav-link" href="pricing.html">Support Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
-      </ul>
-      <div class="d-flex gap-2 mt-3 mt-lg-0">
-        <a href="login.html" class="btn btn-ghost">Log in</a>
-        <a href="signup.html" class="btn btn-rope">Start for free</a>
-      </div>
-    </div>
-  </div>
-</nav>
-
-<main class="container py-5">
-  <div class="carrier-page">
+@extends('layouts.app')
+@section('title', 'Knot — Shorten, brand, and track every link')
+@section('meta_description', 'Knot — Shorten, brand, and track every link')
+@section('content')
+{{-- Page-specific CSS --}}
+@push('styles')
+<style>
+/*    .page-title {
+        color: #0d6efd;
+        font-weight: 700;
+    }*/
+</style>
+@endpush
+  <div class="carrier-page py-5">
     <h2>Join the Knot Team</h2>
     <p class="page-subtitle">We're building the best free link management platform. Help us keep it free, open, and community-driven.</p>
 
@@ -282,18 +256,8 @@
     </div>
   </div>
 </div>
-
-<!-- Cookie Consent Banner -->
-<div class="cookie-banner" id="cookieBanner">
-  <p>We use cookies to ensure you get the best experience on Knot. By continuing, you agree to our use of cookies.</p>
-  <div class="d-flex gap-2">
-    <button class="btn btn-ghost btn-sm" onclick="acceptCookies()">Accept All</button>
-    <button class="btn btn-rope btn-sm" onclick="acceptCookies()">Got it</button>
-  </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/app.js"></script>
+@endsection
+@push('scripts')
 <script>
 // File upload handling
 function handleFileSelect(event) {
@@ -384,14 +348,6 @@ document.querySelectorAll('[data-bs-target="#applyModal"]').forEach(function(btn
     }, 300);
   });
 });
-
-// Cookie consent
-function acceptCookies() {
-  var banner = document.getElementById('cookieBanner');
-  if (banner) {
-    banner.style.display = 'none';
-  }
-}
 </script>
-</body>
-</html>
+@endpush
+

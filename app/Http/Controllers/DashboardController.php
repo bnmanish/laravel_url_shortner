@@ -38,4 +38,8 @@ class DashboardController extends Controller
     public function team(){
         return view('team');
     }
+
+    public function setting(){
+        return view('setting');
+    }
 }

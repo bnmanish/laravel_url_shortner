@@ -59,31 +59,31 @@
                 <div class="col-6 col-lg-2">
                     <h6 class="mb-3">Product</h6>
                     <ul class="list-unstyled d-grid gap-2">
-                        <li><a href="features.html">Features</a></li>
-                        <li><a href="pricing.html">Support Us</a></li>
-                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="{{route('features')}}">Features</a></li>
+                        <li><a href="{{route('pricing')}}">Support Us</a></li>
+                        <li><a href="{{route('login')}}">Dashboard</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-lg-2">
                     <h6 class="mb-3">Account</h6>
                     <ul class="list-unstyled d-grid gap-2">
-                        <li><a href="login.html">Log in</a></li>
-                        <li><a href="signup.html">Sign up</a></li>
+                        <li><a href="{{route('login')}}">Log in</a></li>
+                        <li><a href="{{route('signup')}}">Sign up</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-lg-2">
                     <h6 class="mb-3">Company</h6>
                     <ul class="list-unstyled d-grid gap-2">
                         <li><a href="#">About</a></li>
-                        <li><a href="carrier.html">Careers</a></li>
+                        <li><a href="{{route('career')}}">Careers</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-lg-2">
                     <h6 class="mb-3">Legal</h6>
                     <ul class="list-unstyled d-grid gap-2">
-                        <li><a href="privacy-policy.html">Privacy</a></li>
-                        <li><a href="terms-conditions.html">Terms</a></li>
-                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                        <li><a href="{{route('privacy.policy')}}">Privacy</a></li>
+                        <li><a href="{{route('terms.conditions')}}">Terms</a></li>
+                        <li><a href="{{route('disclaimer')}}">Disclaimer</a></li>
                     </ul>
                 </div>
             </div>
@@ -94,9 +94,27 @@
         </div>
     </footer>
 
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+      <p>We use cookies to ensure you get the best experience on Knot. By continuing, you agree to our use of cookies.</p>
+      <div class="d-flex gap-2">
+        <button class="btn btn-ghost btn-sm" onclick="acceptCookies()">Accept All</button>
+        <button class="btn btn-rope btn-sm" onclick="acceptCookies()">Got it</button>
+      </div>
+    </div>
+
     <script src="{{ url('/') }}/assets/js/bootstrap.bundle.min.js"></script>
     <script src="{{ url('/') }}/assets/js/app.js"></script>
     <script src="{{ url('/') }}/assets/js/jquery-4.0.0.min.js"></script>
     @stack('scripts')
+    <script>
+        // Cookie consent
+        function acceptCookies() {
+          var banner = document.getElementById('cookieBanner');
+          if (banner) {
+            banner.style.display = 'none';
+          }
+        }
+    </script>
 </body>
 </html>

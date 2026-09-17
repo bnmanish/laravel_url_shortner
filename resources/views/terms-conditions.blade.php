@@ -1,43 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Terms &amp; Conditions — Knot</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-
-<nav class="navbar navbar-expand-lg knot-nav sticky-top">
-  <div class="container">
-    <a class="knot-logo" href="index.html">
-      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="3" y="12.5" width="15" height="9" rx="4.5" transform="rotate(-38 3 12.5)" stroke="currentColor" stroke-width="2.3"/>
-        <rect x="14" y="9.5" width="15" height="9" rx="4.5" transform="rotate(-38 14 9.5)" stroke="currentColor" stroke-width="2.3"/>
-      </svg>
-      Knot
-    </a>
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="nav">
-      <ul class="navbar-nav mx-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html">Product</a></li>
-        <li class="nav-item"><a class="nav-link" href="features.html">Features</a></li>
-        <li class="nav-item"><a class="nav-link" href="pricing.html">Support Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
-      </ul>
-      <div class="d-flex gap-2 mt-3 mt-lg-0">
-        <a href="login.html" class="btn btn-ghost">Log in</a>
-        <a href="signup.html" class="btn btn-rope">Start for free</a>
-      </div>
-    </div>
-  </div>
-</nav>
-
-<main class="container py-5">
-  <div class="legal-page">
+@extends('layouts.app')
+@section('title', 'Knot — Shorten, brand, and track every link')
+@section('meta_description', 'Knot — Shorten, brand, and track every link')
+@section('content')
+{{-- Page-specific CSS --}}
+@push('styles')
+<style>
+/*    .page-title {
+        color: #0d6efd;
+        font-weight: 700;
+    }*/
+</style>
+@endpush
+  <div class="legal-page py-5">
     <h2>Terms &amp; Conditions</h2>
     <p class="last-updated">Last updated: September 13, 2026</p>
 
@@ -148,60 +122,12 @@
       Address: Knot Theme, Support Team</p>
     </div>
   </div>
-</main>
-
-<footer class="knot-footer py-5">
-  <div class="container">
-    <div class="row gy-4">
-      <div class="col-lg-4">
-        <a class="knot-logo text-white mb-3 d-inline-flex" href="index.html">
-          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="3" y="12.5" width="15" height="9" rx="4.5" transform="rotate(-38 3 12.5)" stroke="currentColor" stroke-width="2.3"/>
-            <rect x="14" y="9.5" width="15" height="9" rx="4.5" transform="rotate(-38 14 9.5)" stroke="currentColor" stroke-width="2.3"/>
-          </svg>
-          Knot
-        </a>
-        <p style="max-width:32ch;">A short link is still a promise. Knot keeps it, tracks it, and brings it home — for free.</p>
-      </div>
-      <div class="col-6 col-lg-2">
-        <h6 class="mb-3">Product</h6>
-        <ul class="list-unstyled d-grid gap-2">
-          <li><a href="features.html">Features</a></li>
-          <li><a href="pricing.html">Support Us</a></li>
-          <li><a href="dashboard.html">Dashboard</a></li>
-        </ul>
-      </div>
-      <div class="col-6 col-lg-2">
-        <h6 class="mb-3">Legal</h6>
-        <ul class="list-unstyled d-grid gap-2">
-          <li><a href="privacy-policy.html">Privacy</a></li>
-          <li><a href="terms-conditions.html">Terms</a></li>
-          <li><a href="disclaimer.html">Disclaimer</a></li>
-        </ul>
-      </div>
-      <div class="col-6 col-lg-2">
-        <h6 class="mb-3">Company</h6>
-        <ul class="list-unstyled d-grid gap-2">
-          <li><a href="#">About</a></li>
-          <li><a href="carrier.html">Careers</a></li>
-        </ul>
-      </div>
-      <div class="col-6 col-lg-2">
-        <h6 class="mb-3">Support</h6>
-        <ul class="list-unstyled d-grid gap-2">
-          <li><a href="dashboard.html">Help Center</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="divider mt-4 pt-4 d-flex flex-wrap justify-content-between gap-2">
-      <span>&copy; 2026 Knot. A theme, not a real product.</span>
-      <span>Built with Bootstrap 5</span>
-    </div>
-  </div>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/app.js"></script>
-</body>
-</html>
+@endsection
+{{-- Page-specific JavaScript --}}
+@push('scripts')
+<script>
+    // $( document ).ready(function() {
+    //     console.log( "ready!" );
+    // });
+</script>
+@endpush

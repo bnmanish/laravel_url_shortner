@@ -16,12 +16,20 @@ Route::get('/login', [HomeController::class, 'login'])->name('login');
 Route::get('/signup', [HomeController::class, 'signup'])->name('signup');
 Route::get('/features', [HomeController::class, 'features'])->name('features');
 Route::get('/pricing', [HomeController::class, 'pricing'])->name('pricing');
+Route::get('/career', [HomeController::class, 'career'])->name('career');
+Route::get('/privacy-policy', [HomeController::class, 'privacyPolicy'])->name('privacy.policy');
+Route::get('/terms-and-conditions', [HomeController::class, 'termsAndConditions'])->name('terms.conditions');
+Route::get('/disclaimer', [HomeController::class, 'disclaimer'])->name('disclaimer');
+
+
+
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 Route::get('/analytics', [DashboardController::class, 'analytics'])->name('analytics');
 Route::get('/qrcode', [DashboardController::class, 'qrcode'])->name('qrcode');
 Route::get('/bio', [DashboardController::class, 'bio'])->name('bio');
 Route::get('/team', [DashboardController::class, 'team'])->name('team');
+Route::get('/setting', [DashboardController::class, 'setting'])->name('setting');
 
 
 
