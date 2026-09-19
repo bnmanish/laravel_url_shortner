@@ -7,6 +7,7 @@
     <meta name="description" content="@yield('meta_description')">
     <link rel="stylesheet" href="{{ url('/') }}/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url('/') }}/assets/css/style.css">
+    <link rel="stylesheet" href="{{ url('/') }}/assets/css/custom.css">
     <link rel="icon" type="image/x-icon" href="{{url('assets/logo/favicon.png')}}">
     @stack('styles')
     <style>
@@ -94,20 +95,189 @@
         </div>
     </footer>
 
-    <!-- Cookie Consent Banner -->
-    <div class="cookie-banner" id="cookieBanner">
+    <!-- simple Cookie Consent Banner starts-->
+    {{--<div class="cookie-banner" id="cookieBanner">
       <p>We use cookies to ensure you get the best experience on Knot. By continuing, you agree to our use of cookies.</p>
       <div class="d-flex gap-2">
         <button class="btn btn-ghost btn-sm" onclick="acceptCookies()">Accept All</button>
         <button class="btn btn-rope btn-sm" onclick="acceptCookies()">Got it</button>
       </div>
+    </div>--}}
+    <!-- simple Cookie Consent Banner ends-->
+
+    <!-- Cookie Consent Banner starts-->
+    <div id="cookieConsentBanner"
+         class="cookie-consent-banner"
+         style="display: none;">
+
+        <div class="cookie-consent-content">
+
+            <div class="cookie-consent-text">
+                <h6 class="mb-1">We use cookies</h6>
+
+                <p class="mb-0">
+                    We use cookies to improve your experience, remember your
+                    preferences, and understand how Knot is used.
+                </p>
+            </div>
+
+            <div class="cookie-consent-actions">
+                <button type="button"
+                        class="btn btn-link cookie-settings-btn"
+                        id="cookieSettingsBtn">
+                    Cookie Settings
+                </button>
+
+                <button type="button"
+                        class="btn btn-outline-light"
+                        id="rejectCookiesBtn">
+                    Reject Non-Essential
+                </button>
+
+                <button type="button"
+                        class="btn btn-primary"
+                        id="acceptCookiesBtn">
+                    Accept All
+                </button>
+            </div>
+
+        </div>
     </div>
+    <!-- Cookie Settings Modal -->
+    <div class="modal fade"
+         id="cookieSettingsModal"
+         tabindex="-1"
+         aria-labelledby="cookieSettingsModalLabel"
+         aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <h5 class="modal-title" id="cookieSettingsModalLabel">
+                        Cookie Preferences
+                    </h5>
+
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close">
+                    </button>
+
+                </div>
+
+                <div class="modal-body">
+
+                    <p class="text-muted small">
+                        Choose which types of cookies you want to allow.
+                        Essential cookies cannot be disabled because they are
+                        required for basic website functionality.
+                    </p>
+
+
+                    <!-- Essential -->
+                    <div class="cookie-option">
+
+                        <div>
+                            <strong>Essential Cookies</strong>
+
+                            <p class="text-muted small mb-0">
+                                Required for login, security, sessions and
+                                basic website functionality.
+                            </p>
+                        </div>
+
+                        <div class="form-check form-switch">
+
+                            <input class="form-check-input"
+                                   type="checkbox"
+                                   checked
+                                   disabled>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Analytics -->
+                    <div class="cookie-option">
+
+                        <div>
+                            <strong>Analytics Cookies</strong>
+
+                            <p class="text-muted small mb-0">
+                                Help us understand how visitors use Knot
+                                so we can improve the service.
+                            </p>
+                        </div>
+
+                        <div class="form-check form-switch">
+
+                            <input class="form-check-input"
+                                   type="checkbox"
+                                   id="analyticsCookies">
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Marketing -->
+                    <div class="cookie-option">
+
+                        <div>
+                            <strong>Marketing Cookies</strong>
+
+                            <p class="text-muted small mb-0">
+                                Used to measure advertising effectiveness
+                                and provide relevant content.
+                            </p>
+                        </div>
+
+                        <div class="form-check form-switch">
+
+                            <input class="form-check-input"
+                                   type="checkbox"
+                                   id="marketingCookies">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="modal-footer">
+
+                    <button type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+
+                    <button type="button"
+                            class="btn btn-primary"
+                            id="saveCookiePreferences">
+                        Save Preferences
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- Cookie Consent Banner ends-->
 
     <script src="{{ url('/') }}/assets/js/bootstrap.bundle.min.js"></script>
     <script src="{{ url('/') }}/assets/js/app.js"></script>
     <script src="{{ url('/') }}/assets/js/jquery-4.0.0.min.js"></script>
+    <script src="{{ url('/') }}/assets/js/custom.js"></script>
     @stack('scripts')
-    <script>
+    <!-- simple Cookie Consent Banner js starts-->
+    <!-- <script>
         // Cookie consent
         function acceptCookies() {
           var banner = document.getElementById('cookieBanner');
@@ -115,6 +285,7 @@
             banner.style.display = 'none';
           }
         }
-    </script>
+    </script> -->
+    <!-- simple Cookie Consent Banner js ends-->
 </body>
 </html>
