@@ -271,6 +271,45 @@
     </div>
     <!-- Cookie Consent Banner ends-->
 
+    <!-- <button type="button" class="btn btn-link p-0" id="manageCookiePreferences">Cookie Preferences</button> -->
+
+    <!-- Floating Cookie Preferences -->
+    <button
+        type="button"
+        class="cookie-preferences"
+        aria-label="Open Cookie Preferences"
+        id="manageCookiePreferences"
+    >
+        <span class="cookie-icon" aria-hidden="true">
+            <!-- Cookie SVG icon -->
+            <svg viewBox="0 0 24 24" fill="none">
+                <path
+                    d="M20.1 13.3c.1-.4.1-.8.1-1.3
+                       0-4.9-4-8.9-8.9-8.9
+                       -.5 0-.9 0-1.3.1
+                       .2 1.6-.9 3.1-2.5 3.5
+                       -1.6.4-3.2-.5-3.7-2
+                       C2.7 6.3 2 8 2 10.1
+                       2 15.6 6.4 20 11.9 20
+                       c2.1 0 4-.7 5.5-1.8
+                       -1.5-.5-2.4-2.1-2-3.7
+                       .4-1.6 1.9-2.7 3.5-2.5
+                       .4.1.8.1 1.2.1Z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <circle cx="8" cy="11" r="1" fill="currentColor"/>
+                <circle cx="11" cy="15" r="1" fill="currentColor"/>
+                <circle cx="7.5" cy="15.5" r=".8" fill="currentColor"/>
+                <circle cx="12.5" cy="9" r="1" fill="currentColor"/>
+            </svg>
+        </span>
+
+        <span class="cookie-label">Cookie Preferences</span>
+    </button>
+
     <script src="{{ url('/') }}/assets/js/bootstrap.bundle.min.js"></script>
     <script src="{{ url('/') }}/assets/js/app.js"></script>
     <script src="{{ url('/') }}/assets/js/jquery-4.0.0.min.js"></script>
