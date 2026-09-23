@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,34 +9,35 @@
     <link rel="stylesheet" href="{{ url('/') }}/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url('/') }}/assets/css/style.css">
     <link rel="stylesheet" href="{{ url('/') }}/assets/css/custom.css">
-    <link rel="icon" type="image/x-icon" href="{{url('assets/logo/favicon.png')}}">
+    <link rel="icon" type="image/x-icon" href="{{ url('assets/logo/favicon.png') }}">
     @stack('styles')
     <style>
-        .knot-logo{
+        .knot-logo {
             width: 123px;
         }
     </style>
 </head>
+
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg knot-nav sticky-top">
         <div class="container">
-            <a class="knot-logo" href="{{route('home')}}">
-                <img class="w-100" src="{{url('assets/logo/knot.png')}}" alt="knot">
+            <a class="knot-logo" href="{{ route('home') }}">
+                <img class="w-100" src="{{ url('assets/logo/knot.png') }}" alt="knot">
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="nav">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link active" href="{{route('home')}}">Product</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('features')}}">Features</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('pricing')}}">Pricing</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('dashboard')}}">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{{ route('home') }}">Product</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('features') }}">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('pricing') }}">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a></li>
                 </ul>
                 <div class="d-flex gap-2 mt-3 mt-lg-0">
-                    <a href="{{route('login')}}" class="btn btn-ghost">Log in</a>
-                    <a href="{{route('signup')}}" class="btn btn-rope">Start for free</a>
+                    <a href="{{ route('login') }}" class="btn btn-ghost">Log in</a>
+                    <a href="{{ route('signup') }}" class="btn btn-rope">Start for free</a>
                 </div>
             </div>
         </div>
@@ -52,7 +54,7 @@
             <div class="row gy-4">
                 <div class="col-lg-4">
                     <a class="knot-logo text-white mb-3 d-inline-flex" href="index.html">
-                        <img class="w-100" src="{{url('assets/logo/knot-light-logo.png')}}" alt="knot">
+                        <img class="w-100" src="{{ url('assets/logo/knot-light-logo.png') }}" alt="knot">
                     </a>
                     <p style="max-width:32ch;">A short link is still a promise. Knot keeps it, tracks it, and brings it
                         home.</p>
@@ -60,31 +62,31 @@
                 <div class="col-6 col-lg-2">
                     <h6 class="mb-3">Product</h6>
                     <ul class="list-unstyled d-grid gap-2">
-                        <li><a href="{{route('features')}}">Features</a></li>
-                        <li><a href="{{route('pricing')}}">Support Us</a></li>
-                        <li><a href="{{route('login')}}">Dashboard</a></li>
+                        <li><a href="{{ route('features') }}">Features</a></li>
+                        <li><a href="{{ route('pricing') }}">Support Us</a></li>
+                        <li><a href="{{ route('login') }}">Dashboard</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-lg-2">
                     <h6 class="mb-3">Account</h6>
                     <ul class="list-unstyled d-grid gap-2">
-                        <li><a href="{{route('login')}}">Log in</a></li>
-                        <li><a href="{{route('signup')}}">Sign up</a></li>
+                        <li><a href="{{ route('login') }}">Log in</a></li>
+                        <li><a href="{{ route('signup') }}">Sign up</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-lg-2">
                     <h6 class="mb-3">Company</h6>
                     <ul class="list-unstyled d-grid gap-2">
                         <li><a href="#">About</a></li>
-                        <li><a href="{{route('career')}}">Careers</a></li>
+                        <li><a href="{{ route('career') }}">Careers</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-lg-2">
                     <h6 class="mb-3">Legal</h6>
                     <ul class="list-unstyled d-grid gap-2">
-                        <li><a href="{{route('privacy.policy')}}">Privacy</a></li>
-                        <li><a href="{{route('terms.conditions')}}">Terms</a></li>
-                        <li><a href="{{route('disclaimer')}}">Disclaimer</a></li>
+                        <li><a href="{{ route('privacy.policy') }}">Privacy</a></li>
+                        <li><a href="{{ route('terms.conditions') }}">Terms</a></li>
+                        <li><a href="{{ route('disclaimer') }}">Disclaimer</a></li>
                     </ul>
                 </div>
             </div>
@@ -96,19 +98,17 @@
     </footer>
 
     <!-- simple Cookie Consent Banner starts-->
-    {{--<div class="cookie-banner" id="cookieBanner">
+    {{-- <div class="cookie-banner" id="cookieBanner">
       <p>We use cookies to ensure you get the best experience on Knot. By continuing, you agree to our use of cookies.</p>
       <div class="d-flex gap-2">
         <button class="btn btn-ghost btn-sm" onclick="acceptCookies()">Accept All</button>
         <button class="btn btn-rope btn-sm" onclick="acceptCookies()">Got it</button>
       </div>
-    </div>--}}
+    </div> --}}
     <!-- simple Cookie Consent Banner ends-->
 
     <!-- Cookie Consent Banner starts-->
-    <div id="cookieConsentBanner"
-         class="cookie-consent-banner"
-         style="display: none;">
+    <div id="cookieConsentBanner" class="cookie-consent-banner" style="display: none;">
 
         <div class="cookie-consent-content">
 
@@ -122,21 +122,15 @@
             </div>
 
             <div class="cookie-consent-actions">
-                <button type="button"
-                        class="btn btn-link cookie-settings-btn"
-                        id="cookieSettingsBtn">
+                <button type="button" class="btn btn-link cookie-settings-btn" id="cookieSettingsBtn">
                     Cookie Settings
                 </button>
 
-                <button type="button"
-                        class="btn btn-outline-light"
-                        id="rejectCookiesBtn">
+                <button type="button" class="btn btn-outline-light" id="rejectCookiesBtn">
                     Reject Non-Essential
                 </button>
 
-                <button type="button"
-                        class="btn btn-primary"
-                        id="acceptCookiesBtn">
+                <button type="button" class="btn btn-primary" id="acceptCookiesBtn">
                     Accept All
                 </button>
             </div>
@@ -144,11 +138,8 @@
         </div>
     </div>
     <!-- Cookie Settings Modal -->
-    <div class="modal fade"
-         id="cookieSettingsModal"
-         tabindex="-1"
-         aria-labelledby="cookieSettingsModalLabel"
-         aria-hidden="true">
+    <div class="modal fade" id="cookieSettingsModal" tabindex="-1" aria-labelledby="cookieSettingsModalLabel"
+        aria-hidden="true">
 
         <div class="modal-dialog modal-dialog-centered">
 
@@ -160,10 +151,7 @@
                         Cookie Preferences
                     </h5>
 
-                    <button type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Close">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     </button>
 
                 </div>
@@ -191,10 +179,7 @@
 
                         <div class="form-check form-switch">
 
-                            <input class="form-check-input"
-                                   type="checkbox"
-                                   checked
-                                   disabled>
+                            <input class="form-check-input" type="checkbox" checked disabled>
 
                         </div>
 
@@ -215,9 +200,7 @@
 
                         <div class="form-check form-switch">
 
-                            <input class="form-check-input"
-                                   type="checkbox"
-                                   id="analyticsCookies">
+                            <input class="form-check-input" type="checkbox" id="analyticsCookies">
 
                         </div>
 
@@ -238,9 +221,7 @@
 
                         <div class="form-check form-switch">
 
-                            <input class="form-check-input"
-                                   type="checkbox"
-                                   id="marketingCookies">
+                            <input class="form-check-input" type="checkbox" id="marketingCookies">
 
                         </div>
 
@@ -251,15 +232,11 @@
 
                 <div class="modal-footer">
 
-                    <button type="button"
-                            class="btn btn-secondary"
-                            data-bs-dismiss="modal">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                         Cancel
                     </button>
 
-                    <button type="button"
-                            class="btn btn-primary"
-                            id="saveCookiePreferences">
+                    <button type="button" class="btn btn-primary" id="saveCookiePreferences">
                         Save Preferences
                     </button>
 
@@ -274,17 +251,12 @@
     <!-- <button type="button" class="btn btn-link p-0" id="manageCookiePreferences">Cookie Preferences</button> -->
 
     <!-- Floating Cookie Preferences -->
-    <button
-        type="button"
-        class="cookie-preferences"
-        aria-label="Open Cookie Preferences"
-        id="manageCookiePreferences"
-    >
+    <button type="button" class="cookie-preferences" aria-label="Open Cookie Preferences"
+        id="manageCookiePreferences">
         <span class="cookie-icon" aria-hidden="true">
             <!-- Cookie SVG icon -->
             <svg viewBox="0 0 24 24" fill="none">
-                <path
-                    d="M20.1 13.3c.1-.4.1-.8.1-1.3
+                <path d="M20.1 13.3c.1-.4.1-.8.1-1.3
                        0-4.9-4-8.9-8.9-8.9
                        -.5 0-.9 0-1.3.1
                        .2 1.6-.9 3.1-2.5 3.5
@@ -294,16 +266,12 @@
                        c2.1 0 4-.7 5.5-1.8
                        -1.5-.5-2.4-2.1-2-3.7
                        .4-1.6 1.9-2.7 3.5-2.5
-                       .4.1.8.1 1.2.1Z"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                />
-                <circle cx="8" cy="11" r="1" fill="currentColor"/>
-                <circle cx="11" cy="15" r="1" fill="currentColor"/>
-                <circle cx="7.5" cy="15.5" r=".8" fill="currentColor"/>
-                <circle cx="12.5" cy="9" r="1" fill="currentColor"/>
+                       .4.1.8.1 1.2.1Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <circle cx="8" cy="11" r="1" fill="currentColor" />
+                <circle cx="11" cy="15" r="1" fill="currentColor" />
+                <circle cx="7.5" cy="15.5" r=".8" fill="currentColor" />
+                <circle cx="12.5" cy="9" r="1" fill="currentColor" />
             </svg>
         </span>
 
@@ -319,12 +287,13 @@
     <!-- <script>
         // Cookie consent
         function acceptCookies() {
-          var banner = document.getElementById('cookieBanner');
-          if (banner) {
-            banner.style.display = 'none';
-          }
+            var banner = document.getElementById('cookieBanner');
+            if (banner) {
+                banner.style.display = 'none';
+            }
         }
     </script> -->
     <!-- simple Cookie Consent Banner js ends-->
 </body>
+
 </html>

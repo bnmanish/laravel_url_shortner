@@ -23,12 +23,12 @@
 
         <!-- Sidebar -->
         <aside class="dash-sidebar" id="dashSidebar">
-            <a class="knot-logo mb-5" href="{{route('dashboard')}}">
-                <img class="w-100" src="{{url('assets/logo/knot-light-logo.png')}}" alt="knot">
+            <a class="knot-logo mb-5" href="{{ route('dashboard') }}">
+                <img class="w-100" src="{{ url('assets/logo/knot-light-logo.png') }}" alt="knot">
             </a>
 
             <nav class="d-grid gap-1 mb-auto">
-                <a class="dash-nav-link" href="{{route('dashboard')}}">
+                <a class="dash-nav-link" href="{{ route('dashboard') }}">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                         <rect x="3" y="3" width="8" height="8" rx="1.5" />
                         <rect x="13" y="3" width="8" height="5" rx="1.5" />
@@ -37,13 +37,13 @@
                     </svg>
                     Links
                 </a>
-                <a class="dash-nav-link active" href="{{route('analytics')}}">
+                <a class="dash-nav-link active" href="{{ route('analytics') }}">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                         <path d="M4 20V10M12 20V4M20 20v-7" />
                     </svg>
                     Analytics
                 </a>
-                <a class="dash-nav-link" href="{{route('qrcode')}}">
+                <a class="dash-nav-link" href="{{ route('qrcode') }}">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                         <rect x="4" y="4" width="6" height="6" />
                         <rect x="14" y="4" width="6" height="6" />
@@ -52,14 +52,14 @@
                     </svg>
                     QR codes
                 </a>
-                <a class="dash-nav-link" href="{{route('bio')}}">
+                <a class="dash-nav-link" href="{{ route('bio') }}">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                         <circle cx="12" cy="8" r="3.2" />
                         <path d="M5 21c0-4 3-6.5 7-6.5s7 2.5 7 6.5" />
                     </svg>
                     Bio page
                 </a>
-                <a class="dash-nav-link" href="{{route('team')}}">
+                <a class="dash-nav-link" href="{{ route('team') }}">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                         <circle cx="9" cy="8" r="3" />
                         <path d="M2 20c0-3.3 3-6 7-6s7 2.7 7 6" />
@@ -68,7 +68,7 @@
                     </svg>
                     Team
                 </a>
-                <a class="dash-nav-link" href="{{route('setting')}}">
+                <a class="dash-nav-link" href="{{ route('setting') }}">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                         <circle cx="12" cy="12" r="3.2" />
                         <path

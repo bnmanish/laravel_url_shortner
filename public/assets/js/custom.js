@@ -364,42 +364,42 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     const manageCookiePreferences =
-    document.getElementById('manageCookiePreferences');
+        document.getElementById('manageCookiePreferences');
 
-if (manageCookiePreferences) {
+    if (manageCookiePreferences) {
 
-    manageCookiePreferences.addEventListener(
-        'click',
-        function () {
+        manageCookiePreferences.addEventListener(
+            'click',
+            function () {
 
-            const consent = getConsent();
+                const consent = getConsent();
 
-            if (consent) {
+                if (consent) {
 
-                analyticsCheckbox.checked =
-                    consent.analytics === true;
+                    analyticsCheckbox.checked =
+                        consent.analytics === true;
 
-                marketingCheckbox.checked =
-                    consent.marketing === true;
+                    marketingCheckbox.checked =
+                        consent.marketing === true;
+
+                }
+
+                const modalElement =
+                    document.getElementById(
+                        'cookieSettingsModal'
+                    );
+
+                const modal =
+                    bootstrap.Modal.getOrCreateInstance(
+                        modalElement
+                    );
+
+                modal.show();
 
             }
+        );
 
-            const modalElement =
-                document.getElementById(
-                    'cookieSettingsModal'
-                );
-
-            const modal =
-                bootstrap.Modal.getOrCreateInstance(
-                    modalElement
-                );
-
-            modal.show();
-
-        }
-    );
-
-}
+    }
 
 });
 
