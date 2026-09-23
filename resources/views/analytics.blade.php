@@ -2,351 +2,397 @@
 @section('title', 'Knot — Analytics Shorten, brand, and track every link')
 @section('meta_description', 'Knot — Shorten, brand, and track every link')
 @section('content')
-{{-- Page-specific CSS --}}
-@push('styles')
-@endpush
-  <div class="dash-content">
+    {{-- Page-specific CSS --}}
+    @push('styles')
+    @endpush
+    <div class="dash-content">
 
-    <div class="d-flex justify-content-between align-items-end mb-4 flex-wrap gap-2">
-      <div>
-        <h2 class="h3 mb-1">Analytics overview</h2>
-        <p class="text-soft mb-0">Click data for your links, organized by campaign and date.</p>
-      </div>
-      <div class="d-flex gap-2">
-        <select class="form-select form-select-sm" style="width:auto;">
-          <option>Last 7 days</option>
-          <option>Last 30 days</option>
-          <option>Last 90 days</option>
-        </select>
-      </div>
-    </div>
-
-    <!-- KPI tiles -->
-    <div class="row gy-3 mb-4">
-      <div class="col-6 col-lg-3">
-        <div class="stat-tile">
-          <div class="text-faint mb-1" style="font-size:0.82rem;">Total clicks</div>
-          <div class="stat-num" style="font-size:1.9rem;">18,204</div>
-          <div class="text-moss" style="font-size:0.8rem;">&#8599; 12.4% vs last period</div>
-        </div>
-      </div>
-      <div class="col-6 col-lg-3">
-        <div class="stat-tile">
-          <div class="text-faint mb-1" style="font-size:0.82rem;">Unique visitors</div>
-          <div class="stat-num" style="font-size:1.9rem;">9,431</div>
-          <div class="text-moss" style="font-size:0.8rem;">&#8599; 8.7% vs last period</div>
-        </div>
-      </div>
-      <div class="col-6 col-lg-3">
-        <div class="stat-tile">
-          <div class="text-faint mb-1" style="font-size:0.82rem;">Avg. time to click</div>
-          <div class="stat-num" style="font-size:1.9rem;">2:14</div>
-          <div class="text-moss" style="font-size:0.8rem;">&#8599; 0:31 vs last period</div>
-        </div>
-      </div>
-      <div class="col-6 col-lg-3">
-        <div class="stat-tile">
-          <div class="text-faint mb-1" style="font-size:0.82rem;">Click-through rate</div>
-          <div class="stat-num" style="font-size:1.9rem;">4.8%</div>
-          <div class="text-moss" style="font-size:0.8rem;">&#8599; 0.3% vs last period</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Main chart -->
-    <div class="row gy-3 mb-4">
-      <div class="col-lg-8">
-        <div class="stat-tile h-100">
-          <div class="d-flex justify-content-between align-items-center mb-3">
-            <h6 class="mb-0">Clicks over time</h6>
-            <div class="btn-group btn-group-sm">
-              <button class="btn btn-sm btn-outline-ink active">Daily</button>
-              <button class="btn btn-sm btn-outline-ink">Weekly</button>
-              <button class="btn btn-sm btn-outline-ink">Monthly</button>
-            </div>
-          </div>
-          <div class="bar-chart" style="height:200px;">
-            <div class="bar" style="height:25%"></div>
-            <div class="bar" style="height:40%"></div>
-            <div class="bar" style="height:35%"></div>
-            <div class="bar" style="height:55%"></div>
-            <div class="bar is-peak" style="height:100%"></div>
-            <div class="bar" style="height:70%"></div>
-            <div class="bar" style="height:50%"></div>
-            <div class="bar" style="height:65%"></div>
-            <div class="bar" style="height:45%"></div>
-            <div class="bar" style="height:80%"></div>
-            <div class="bar" style="height:60%"></div>
-            <div class="bar" style="height:90%"></div>
-          </div>
-          <div class="d-flex justify-content-between text-faint mt-2" style="font-size:0.75rem;">
-            <span>Sep 1</span><span>Sep 2</span><span>Sep 3</span><span>Sep 4</span><span>Sep 5</span><span>Sep 6</span><span>Sep 7</span><span>Sep 8</span><span>Sep 9</span><span>Sep 10</span><span>Sep 11</span><span>Sep 12</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="stat-tile h-100">
-          <h6 class="mb-3">Clicks by device</h6>
-          <div class="d-grid gap-3">
+        <div class="d-flex justify-content-between align-items-end mb-4 flex-wrap gap-2">
             <div>
-              <div class="d-flex justify-content-between mb-1"><span class="text-soft" style="font-size:0.85rem;">Mobile</span><span class="fw-semibold" style="font-size:0.85rem;">61%</span></div>
-              <div class="progress" style="height:6px;">
-                <div class="progress-bar" style="width:61%; background:var(--rope);"></div>
-              </div>
+                <h2 class="h3 mb-1">Analytics overview</h2>
+                <p class="text-soft mb-0">Click data for your links, organized by campaign and date.</p>
             </div>
-            <div>
-              <div class="d-flex justify-content-between mb-1"><span class="text-soft" style="font-size:0.85rem;">Desktop</span><span class="fw-semibold" style="font-size:0.85rem;">29%</span></div>
-              <div class="progress" style="height:6px;">
-                <div class="progress-bar" style="width:29%; background:var(--moss);"></div>
-              </div>
+            <div class="d-flex gap-2">
+                <select class="form-select form-select-sm" style="width:auto;">
+                    <option>Last 7 days</option>
+                    <option>Last 30 days</option>
+                    <option>Last 90 days</option>
+                </select>
             </div>
-            <div>
-              <div class="d-flex justify-content-between mb-1"><span class="text-soft" style="font-size:0.85rem;">Tablet</span><span class="fw-semibold" style="font-size:0.85rem;">10%</span></div>
-              <div class="progress" style="height:6px;">
-                <div class="progress-bar" style="width:10%; background:var(--line-dark);"></div>
-              </div>
-            </div>
-          </div>
-          <div class="divider my-3"></div>
-          <h6 class="mb-3">Clicks by country</h6>
-          <div class="d-grid gap-2">
-            <div class="d-flex justify-content-between"><span class="text-soft" style="font-size:0.85rem;">United States</span><span class="fw-semibold" style="font-size:0.85rem;">38%</span></div>
-            <div class="d-flex justify-content-between"><span class="text-soft" style="font-size:0.85rem;">United Kingdom</span><span class="fw-semibold" style="font-size:0.85rem;">18%</span></div>
-            <div class="d-flex justify-content-between"><span class="text-soft" style="font-size:0.85rem;">Germany</span><span class="fw-semibold" style="font-size:0.85rem;">12%</span></div>
-            <div class="d-flex justify-content-between"><span class="text-soft" style="font-size:0.85rem;">Canada</span><span class="fw-semibold" style="font-size:0.85rem;">9%</span></div>
-            <div class="d-flex justify-content-between"><span class="text-soft" style="font-size:0.85rem;">Other</span><span class="fw-semibold" style="font-size:0.85rem;">23%</span></div>
-          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Referrers + Top links -->
-    <div class="row gy-3 mb-4">
-      <div class="col-lg-6">
+        <!-- KPI tiles -->
+        <div class="row gy-3 mb-4">
+            <div class="col-6 col-lg-3">
+                <div class="stat-tile">
+                    <div class="text-faint mb-1" style="font-size:0.82rem;">Total clicks</div>
+                    <div class="stat-num" style="font-size:1.9rem;">18,204</div>
+                    <div class="text-moss" style="font-size:0.8rem;">&#8599; 12.4% vs last period</div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3">
+                <div class="stat-tile">
+                    <div class="text-faint mb-1" style="font-size:0.82rem;">Unique visitors</div>
+                    <div class="stat-num" style="font-size:1.9rem;">9,431</div>
+                    <div class="text-moss" style="font-size:0.8rem;">&#8599; 8.7% vs last period</div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3">
+                <div class="stat-tile">
+                    <div class="text-faint mb-1" style="font-size:0.82rem;">Avg. time to click</div>
+                    <div class="stat-num" style="font-size:1.9rem;">2:14</div>
+                    <div class="text-moss" style="font-size:0.8rem;">&#8599; 0:31 vs last period</div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3">
+                <div class="stat-tile">
+                    <div class="text-faint mb-1" style="font-size:0.82rem;">Click-through rate</div>
+                    <div class="stat-num" style="font-size:1.9rem;">4.8%</div>
+                    <div class="text-moss" style="font-size:0.8rem;">&#8599; 0.3% vs last period</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main chart -->
+        <div class="row gy-3 mb-4">
+            <div class="col-lg-8">
+                <div class="stat-tile h-100">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h6 class="mb-0">Clicks over time</h6>
+                        <div class="btn-group btn-group-sm">
+                            <button class="btn btn-sm btn-outline-ink active">Daily</button>
+                            <button class="btn btn-sm btn-outline-ink">Weekly</button>
+                            <button class="btn btn-sm btn-outline-ink">Monthly</button>
+                        </div>
+                    </div>
+                    <div class="bar-chart" style="height:200px;">
+                        <div class="bar" style="height:25%"></div>
+                        <div class="bar" style="height:40%"></div>
+                        <div class="bar" style="height:35%"></div>
+                        <div class="bar" style="height:55%"></div>
+                        <div class="bar is-peak" style="height:100%"></div>
+                        <div class="bar" style="height:70%"></div>
+                        <div class="bar" style="height:50%"></div>
+                        <div class="bar" style="height:65%"></div>
+                        <div class="bar" style="height:45%"></div>
+                        <div class="bar" style="height:80%"></div>
+                        <div class="bar" style="height:60%"></div>
+                        <div class="bar" style="height:90%"></div>
+                    </div>
+                    <div class="d-flex justify-content-between text-faint mt-2" style="font-size:0.75rem;">
+                        <span>Sep 1</span><span>Sep 2</span><span>Sep 3</span><span>Sep 4</span><span>Sep 5</span><span>Sep
+                            6</span><span>Sep 7</span><span>Sep 8</span><span>Sep 9</span><span>Sep 10</span><span>Sep
+                            11</span><span>Sep 12</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="stat-tile h-100">
+                    <h6 class="mb-3">Clicks by device</h6>
+                    <div class="d-grid gap-3">
+                        <div>
+                            <div class="d-flex justify-content-between mb-1"><span class="text-soft"
+                                    style="font-size:0.85rem;">Mobile</span><span class="fw-semibold"
+                                    style="font-size:0.85rem;">61%</span></div>
+                            <div class="progress" style="height:6px;">
+                                <div class="progress-bar" style="width:61%; background:var(--rope);"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="d-flex justify-content-between mb-1"><span class="text-soft"
+                                    style="font-size:0.85rem;">Desktop</span><span class="fw-semibold"
+                                    style="font-size:0.85rem;">29%</span></div>
+                            <div class="progress" style="height:6px;">
+                                <div class="progress-bar" style="width:29%; background:var(--moss);"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="d-flex justify-content-between mb-1"><span class="text-soft"
+                                    style="font-size:0.85rem;">Tablet</span><span class="fw-semibold"
+                                    style="font-size:0.85rem;">10%</span></div>
+                            <div class="progress" style="height:6px;">
+                                <div class="progress-bar" style="width:10%; background:var(--line-dark);"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="divider my-3"></div>
+                    <h6 class="mb-3">Clicks by country</h6>
+                    <div class="d-grid gap-2">
+                        <div class="d-flex justify-content-between"><span class="text-soft"
+                                style="font-size:0.85rem;">United States</span><span class="fw-semibold"
+                                style="font-size:0.85rem;">38%</span></div>
+                        <div class="d-flex justify-content-between"><span class="text-soft"
+                                style="font-size:0.85rem;">United Kingdom</span><span class="fw-semibold"
+                                style="font-size:0.85rem;">18%</span></div>
+                        <div class="d-flex justify-content-between"><span class="text-soft"
+                                style="font-size:0.85rem;">Germany</span><span class="fw-semibold"
+                                style="font-size:0.85rem;">12%</span></div>
+                        <div class="d-flex justify-content-between"><span class="text-soft"
+                                style="font-size:0.85rem;">Canada</span><span class="fw-semibold"
+                                style="font-size:0.85rem;">9%</span></div>
+                        <div class="d-flex justify-content-between"><span class="text-soft"
+                                style="font-size:0.85rem;">Other</span><span class="fw-semibold"
+                                style="font-size:0.85rem;">23%</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Referrers + Top links -->
+        <div class="row gy-3 mb-4">
+            <div class="col-lg-6">
+                <div class="stat-tile">
+                    <h6 class="mb-3">Top referrers</h6>
+                    <div class="d-grid gap-3">
+                        <div class="d-flex justify-content-between align-items-center py-2 border-bottom"
+                            style="border-color:var(--line)!important;">
+                            <div class="d-flex align-items-center gap-2">
+                                <div class="rounded-circle"
+                                    style="width:28px;height:28px;background:var(--rope-tint);flex-shrink:0;"></div>
+                                <div>
+                                    <div class="fw-semibold" style="font-size:0.88rem;">Instagram bio</div>
+                                    <div class="text-faint" style="font-size:0.75rem;">Social media</div>
+                                </div>
+                            </div>
+                            <span class="fw-semibold">6,714</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center py-2 border-bottom"
+                            style="border-color:var(--line)!important;">
+                            <div class="d-flex align-items-center gap-2">
+                                <div class="rounded-circle"
+                                    style="width:28px;height:28px;background:var(--moss-tint);flex-shrink:0;"></div>
+                                <div>
+                                    <div class="fw-semibold" style="font-size:0.88rem;">Email campaign</div>
+                                    <div class="text-faint" style="font-size:0.75rem;">Email marketing</div>
+                                </div>
+                            </div>
+                            <span class="fw-semibold">4,208</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center py-2 border-bottom"
+                            style="border-color:var(--line)!important;">
+                            <div class="d-flex align-items-center gap-2">
+                                <div class="rounded-circle"
+                                    style="width:28px;height:28px;background:var(--paper-dim);flex-shrink:0;"></div>
+                                <div>
+                                    <div class="fw-semibold" style="font-size:0.88rem;">Direct / QR</div>
+                                    <div class="text-faint" style="font-size:0.75rem;">Direct traffic</div>
+                                </div>
+                            </div>
+                            <span class="fw-semibold">1,933</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center py-2">
+                            <div class="d-flex align-items-center gap-2">
+                                <div class="rounded-circle"
+                                    style="width:28px;height:28px;background:var(--paper-dim);flex-shrink:0;"></div>
+                                <div>
+                                    <div class="fw-semibold" style="font-size:0.88rem;">Twitter / X</div>
+                                    <div class="text-faint" style="font-size:0.75rem;">Social media</div>
+                                </div>
+                            </div>
+                            <span class="fw-semibold">812</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="stat-tile">
+                    <h6 class="mb-3">Top performing links</h6>
+                    <div class="table-responsive">
+                        <table class="table table-links mb-0" style="font-size:0.85rem;">
+                            <thead>
+                                <tr class="text-faint" style="font-size:0.78rem;">
+                                    <th class="ps-3">Link</th>
+                                    <th class="text-end">Clicks</th>
+                                    <th class="text-end">CTR</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="ps-3">
+                                        <div class="link-row-url">knot.to/spring-ig-bio</div>
+                                    </td>
+                                    <td class="text-end fw-semibold">6,714</td>
+                                    <td class="text-end text-moss fw-semibold">8.2%</td>
+                                </tr>
+                                <tr>
+                                    <td class="ps-3">
+                                        <div class="link-row-url">knot.to/spring-launch</div>
+                                    </td>
+                                    <td class="text-end fw-semibold">4,208</td>
+                                    <td class="text-end text-moss fw-semibold">5.1%</td>
+                                </tr>
+                                <tr>
+                                    <td class="ps-3">
+                                        <div class="link-row-url">knot.to/spring-email</div>
+                                    </td>
+                                    <td class="text-end fw-semibold">1,933</td>
+                                    <td class="text-end text-faint">3.4%</td>
+                                </tr>
+                                <tr>
+                                    <td class="ps-3">
+                                        <div class="link-row-url">knot.to/fall-preview</div>
+                                    </td>
+                                    <td class="text-end fw-semibold">812</td>
+                                    <td class="text-end text-faint">2.1%</td>
+                                </tr>
+                                <tr>
+                                    <td class="ps-3">
+                                        <div class="link-row-url">knot.to/store-flyer</div>
+                                    </td>
+                                    <td class="text-end fw-semibold">537</td>
+                                    <td class="text-end text-faint">1.8%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent clicks feed -->
         <div class="stat-tile">
-          <h6 class="mb-3">Top referrers</h6>
-          <div class="d-grid gap-3">
-            <div class="d-flex justify-content-between align-items-center py-2 border-bottom" style="border-color:var(--line)!important;">
-              <div class="d-flex align-items-center gap-2">
-                <div class="rounded-circle" style="width:28px;height:28px;background:var(--rope-tint);flex-shrink:0;"></div>
-                <div>
-                  <div class="fw-semibold" style="font-size:0.88rem;">Instagram bio</div>
-                  <div class="text-faint" style="font-size:0.75rem;">Social media</div>
-                </div>
-              </div>
-              <span class="fw-semibold">6,714</span>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h6 class="mb-0">Live click feed</h6>
+                <span class="badge-tag" style="background:var(--moss); color:var(--white);">live</span>
             </div>
-            <div class="d-flex justify-content-between align-items-center py-2 border-bottom" style="border-color:var(--line)!important;">
-              <div class="d-flex align-items-center gap-2">
-                <div class="rounded-circle" style="width:28px;height:28px;background:var(--moss-tint);flex-shrink:0;"></div>
-                <div>
-                  <div class="fw-semibold" style="font-size:0.88rem;">Email campaign</div>
-                  <div class="text-faint" style="font-size:0.75rem;">Email marketing</div>
+            <div id="liveFeed" class="d-grid gap-2" style="max-height:240px; overflow-y:auto;">
+                <div class="d-flex justify-content-between align-items-center py-2 border-bottom"
+                    style="border-color:var(--line)!important; font-size:0.85rem;">
+                    <span class="text-soft">10:42:33</span>
+                    <span class="text-soft">knot.to/spring-ig-bio</span>
+                    <span class="text-soft">New York, US</span>
+                    <span class="text-soft">Instagram</span>
                 </div>
-              </div>
-              <span class="fw-semibold">4,208</span>
-            </div>
-            <div class="d-flex justify-content-between align-items-center py-2 border-bottom" style="border-color:var(--line)!important;">
-              <div class="d-flex align-items-center gap-2">
-                <div class="rounded-circle" style="width:28px;height:28px;background:var(--paper-dim);flex-shrink:0;"></div>
-                <div>
-                  <div class="fw-semibold" style="font-size:0.88rem;">Direct / QR</div>
-                  <div class="text-faint" style="font-size:0.75rem;">Direct traffic</div>
+                <div class="d-flex justify-content-between align-items-center py-2 border-bottom"
+                    style="border-color:var(--line)!important; font-size:0.85rem;">
+                    <span class="text-soft">10:41:18</span>
+                    <span class="text-soft">knot.to/spring-launch</span>
+                    <span class="text-soft">London, UK</span>
+                    <span class="text-soft">Email</span>
                 </div>
-              </div>
-              <span class="fw-semibold">1,933</span>
-            </div>
-            <div class="d-flex justify-content-between align-items-center py-2">
-              <div class="d-flex align-items-center gap-2">
-                <div class="rounded-circle" style="width:28px;height:28px;background:var(--paper-dim);flex-shrink:0;"></div>
-                <div>
-                  <div class="fw-semibold" style="font-size:0.88rem;">Twitter / X</div>
-                  <div class="text-faint" style="font-size:0.75rem;">Social media</div>
+                <div class="d-flex justify-content-between align-items-center py-2 border-bottom"
+                    style="border-color:var(--line)!important; font-size:0.85rem;">
+                    <span class="text-soft">10:40:05</span>
+                    <span class="text-soft">knot.to/spring-email</span>
+                    <span class="text-soft">Berlin, DE</span>
+                    <span class="text-soft">Direct</span>
                 </div>
-              </div>
-              <span class="fw-semibold">812</span>
+                <div class="d-flex justify-content-between align-items-center py-2 border-bottom"
+                    style="border-color:var(--line)!important; font-size:0.85rem;">
+                    <span class="text-soft">10:38:44</span>
+                    <span class="text-soft">knot.to/store-flyer</span>
+                    <span class="text-soft">Toronto, CA</span>
+                    <span class="text-soft">QR Scan</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center py-2 border-bottom"
+                    style="border-color:var(--line)!important; font-size:0.85rem;">
+                    <span class="text-soft">10:37:22</span>
+                    <span class="text-soft">knot.to/fall-preview</span>
+                    <span class="text-soft">Sydney, AU</span>
+                    <span class="text-soft">Twitter</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center py-2 border-bottom"
+                    style="border-color:var(--line)!important; font-size:0.85rem;">
+                    <span class="text-soft">10:36:01</span>
+                    <span class="text-soft">knot.to/spring-ig-bio</span>
+                    <span class="text-soft">Los Angeles, US</span>
+                    <span class="text-soft">Instagram</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center py-2 border-bottom"
+                    style="border-color:var(--line)!important; font-size:0.85rem;">
+                    <span class="text-soft">10:34:55</span>
+                    <span class="text-soft">knot.to/spring-launch</span>
+                    <span class="text-soft">Paris, FR</span>
+                    <span class="text-soft">Email</span>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="stat-tile">
-          <h6 class="mb-3">Top performing links</h6>
-          <div class="table-responsive">
-            <table class="table table-links mb-0" style="font-size:0.85rem;">
-              <thead>
-                <tr class="text-faint" style="font-size:0.78rem;">
-                  <th class="ps-3">Link</th>
-                  <th class="text-end">Clicks</th>
-                  <th class="text-end">CTR</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="ps-3"><div class="link-row-url">knot.to/spring-ig-bio</div></td>
-                  <td class="text-end fw-semibold">6,714</td>
-                  <td class="text-end text-moss fw-semibold">8.2%</td>
-                </tr>
-                <tr>
-                  <td class="ps-3"><div class="link-row-url">knot.to/spring-launch</div></td>
-                  <td class="text-end fw-semibold">4,208</td>
-                  <td class="text-end text-moss fw-semibold">5.1%</td>
-                </tr>
-                <tr>
-                  <td class="ps-3"><div class="link-row-url">knot.to/spring-email</div></td>
-                  <td class="text-end fw-semibold">1,933</td>
-                  <td class="text-end text-faint">3.4%</td>
-                </tr>
-                <tr>
-                  <td class="ps-3"><div class="link-row-url">knot.to/fall-preview</div></td>
-                  <td class="text-end fw-semibold">812</td>
-                  <td class="text-end text-faint">2.1%</td>
-                </tr>
-                <tr>
-                  <td class="ps-3"><div class="link-row-url">knot.to/store-flyer</div></td>
-                  <td class="text-end fw-semibold">537</td>
-                  <td class="text-end text-faint">1.8%</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
+
+    </div>
+    </main>
     </div>
 
-    <!-- Recent clicks feed -->
-    <div class="stat-tile">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <h6 class="mb-0">Live click feed</h6>
-        <span class="badge-tag" style="background:var(--moss); color:var(--white);">live</span>
-      </div>
-      <div id="liveFeed" class="d-grid gap-2" style="max-height:240px; overflow-y:auto;">
-        <div class="d-flex justify-content-between align-items-center py-2 border-bottom" style="border-color:var(--line)!important; font-size:0.85rem;">
-          <span class="text-soft">10:42:33</span>
-          <span class="text-soft">knot.to/spring-ig-bio</span>
-          <span class="text-soft">New York, US</span>
-          <span class="text-soft">Instagram</span>
+    <!-- Export modal -->
+    <div class="modal fade" id="exportModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content" style="border-radius:var(--radius-md);">
+                <div class="modal-header">
+                    <h5 class="modal-title">Export analytics</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Format</label>
+                        <select class="form-select">
+                            <option>CSV</option>
+                            <option>JSON</option>
+                            <option>PDF Report</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Date range</label>
+                        <select class="form-select">
+                            <option>Last 7 days</option>
+                            <option>Last 30 days</option>
+                            <option>Last 90 days</option>
+                            <option>Custom range</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Include</label>
+                        <div class="form-check"><input class="form-check-input" type="checkbox" checked><label
+                                class="form-check-label">Click data</label></div>
+                        <div class="form-check"><input class="form-check-input" type="checkbox" checked><label
+                                class="form-check-label">Device breakdown</label></div>
+                        <div class="form-check"><input class="form-check-input" type="checkbox"><label
+                                class="form-check-label">Geographic data</label></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-ink" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-rope">Export</button>
+                </div>
+            </div>
         </div>
-        <div class="d-flex justify-content-between align-items-center py-2 border-bottom" style="border-color:var(--line)!important; font-size:0.85rem;">
-          <span class="text-soft">10:41:18</span>
-          <span class="text-soft">knot.to/spring-launch</span>
-          <span class="text-soft">London, UK</span>
-          <span class="text-soft">Email</span>
-        </div>
-        <div class="d-flex justify-content-between align-items-center py-2 border-bottom" style="border-color:var(--line)!important; font-size:0.85rem;">
-          <span class="text-soft">10:40:05</span>
-          <span class="text-soft">knot.to/spring-email</span>
-          <span class="text-soft">Berlin, DE</span>
-          <span class="text-soft">Direct</span>
-        </div>
-        <div class="d-flex justify-content-between align-items-center py-2 border-bottom" style="border-color:var(--line)!important; font-size:0.85rem;">
-          <span class="text-soft">10:38:44</span>
-          <span class="text-soft">knot.to/store-flyer</span>
-          <span class="text-soft">Toronto, CA</span>
-          <span class="text-soft">QR Scan</span>
-        </div>
-        <div class="d-flex justify-content-between align-items-center py-2 border-bottom" style="border-color:var(--line)!important; font-size:0.85rem;">
-          <span class="text-soft">10:37:22</span>
-          <span class="text-soft">knot.to/fall-preview</span>
-          <span class="text-soft">Sydney, AU</span>
-          <span class="text-soft">Twitter</span>
-        </div>
-        <div class="d-flex justify-content-between align-items-center py-2 border-bottom" style="border-color:var(--line)!important; font-size:0.85rem;">
-          <span class="text-soft">10:36:01</span>
-          <span class="text-soft">knot.to/spring-ig-bio</span>
-          <span class="text-soft">Los Angeles, US</span>
-          <span class="text-soft">Instagram</span>
-        </div>
-        <div class="d-flex justify-content-between align-items-center py-2 border-bottom" style="border-color:var(--line)!important; font-size:0.85rem;">
-          <span class="text-soft">10:34:55</span>
-          <span class="text-soft">knot.to/spring-launch</span>
-          <span class="text-soft">Paris, FR</span>
-          <span class="text-soft">Email</span>
-        </div>
-      </div>
     </div>
 
-  </div>
-</main>
-</div>
-
-<!-- Export modal -->
-<div class="modal fade" id="exportModal" tabindex="-1">
-<div class="modal-dialog">
-  <div class="modal-content" style="border-radius:var(--radius-md);">
-    <div class="modal-header">
-      <h5 class="modal-title">Export analytics</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-    </div>
-    <div class="modal-body">
-      <div class="mb-3">
-        <label class="form-label">Format</label>
-        <select class="form-select">
-          <option>CSV</option>
-          <option>JSON</option>
-          <option>PDF Report</option>
-        </select>
-      </div>
-      <div class="mb-3">
-        <label class="form-label">Date range</label>
-        <select class="form-select">
-          <option>Last 7 days</option>
-          <option>Last 30 days</option>
-          <option>Last 90 days</option>
-          <option>Custom range</option>
-        </select>
-      </div>
-      <div class="mb-3">
-        <label class="form-label">Include</label>
-        <div class="form-check"><input class="form-check-input" type="checkbox" checked><label class="form-check-label">Click data</label></div>
-        <div class="form-check"><input class="form-check-input" type="checkbox" checked><label class="form-check-label">Device breakdown</label></div>
-        <div class="form-check"><input class="form-check-input" type="checkbox"><label class="form-check-label">Geographic data</label></div>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-ink" data-bs-dismiss="modal">Cancel</button>
-      <button type="button" class="btn btn-rope">Export</button>
-    </div>
-  </div>
-</div>
-</div>
-
-<!-- Create link modal -->
-<div class="modal fade" id="createLinkModal" tabindex="-1">
-<div class="modal-dialog">
-  <div class="modal-content" style="border-radius:var(--radius-md);">
-    <div class="modal-header">
-      <h5 class="modal-title">Create a new link</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-    </div>
-    <div class="modal-body">
-      <div class="mb-3">
-        <label class="form-label">Destination URL</label>
-        <input type="url" class="form-control" placeholder="https://your-site.com/page">
-      </div>
-      <div class="mb-3">
-        <label class="form-label">Short link</label>
-        <div class="input-group">
-          <span class="input-group-text mono" style="background:var(--paper-dim); border-color:var(--line);">knot.to/</span>
-          <input type="text" class="form-control mono" placeholder="custom-slug">
+    <!-- Create link modal -->
+    <div class="modal fade" id="createLinkModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content" style="border-radius:var(--radius-md);">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create a new link</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Destination URL</label>
+                        <input type="url" class="form-control" placeholder="https://your-site.com/page">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Short link</label>
+                        <div class="input-group">
+                            <span class="input-group-text mono"
+                                style="background:var(--paper-dim); border-color:var(--line);">knot.to/</span>
+                            <input type="text" class="form-control mono" placeholder="custom-slug">
+                        </div>
+                    </div>
+                    <div class="mb-1">
+                        <label class="form-label">Campaign</label>
+                        <select class="form-select">
+                            <option>No campaign</option>
+                            <option>Spring launch</option>
+                            <option>Newsletter</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-ink" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-rope">Create link</button>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="mb-1">
-        <label class="form-label">Campaign</label>
-        <select class="form-select">
-          <option>No campaign</option>
-          <option>Spring launch</option>
-          <option>Newsletter</option>
-        </select>
-      </div>
     </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-ink" data-bs-dismiss="modal">Cancel</button>
-      <button type="button" class="btn btn-rope">Create link</button>
-    </div>
-  </div>
-</div>
-</div>
 @endsection
 {{-- Page-specific JavaScript --}}
 @push('scripts')
