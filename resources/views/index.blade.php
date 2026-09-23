@@ -4,12 +4,12 @@
 @section('content')
 {{-- Page-specific CSS --}}
 @push('styles')
-<style>
-/*    .page-title {
-        color: #0d6efd;
-        font-weight: 700;
-    }*/
-</style>
+    <style>
+        /*    .page-title {
+            color: #0d6efd;
+            font-weight: 700;
+        }*/
+    </style>
 @endpush
 <!-- Hero -->
 <header class="container py-5 py-lg-6">
