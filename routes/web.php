@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\LoginController;
+
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InviteController;
 use App\Http\Controllers\LinkController;
@@ -11,9 +13,13 @@ use App\Http\Controllers\DashboardController;
 
 
 
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/logedin', [LoginController::class, 'logedin'])->name('logedin');
+
+Route::get('/signup', [LoginController::class, 'signup'])->name('signup');
+
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/login', [HomeController::class, 'login'])->name('login');
-Route::get('/signup', [HomeController::class, 'signup'])->name('signup');
 Route::get('/features', [HomeController::class, 'features'])->name('features');
 Route::get('/pricing', [HomeController::class, 'pricing'])->name('pricing');
 Route::get('/career', [HomeController::class, 'career'])->name('career');

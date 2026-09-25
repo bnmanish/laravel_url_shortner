@@ -10,25 +10,25 @@
                     <h2 class="mb-2">Welcome back.</h2>
                     <p class="text-soft mb-4">Log in to see what people are clicking today.</p>
 
-                    <form onsubmit="return false;">
+                    <form class="login-form" action="{{route('logedin')}}" method="POST">
                         @csrf();
                         <div class="mb-3">
                             <label class="form-label">Email</label>
-                            <input type="email" class="form-control" placeholder="you@company.com" required>
+                            <input name="email" type="email" class="form-control" placeholder="you@company.com" required>
                         </div>
                         <div class="mb-3">
                             <div class="d-flex justify-content-between">
                                 <label class="form-label">Password</label>
                                 <a href="#" class="text-rope" style="font-size:0.85rem;">Forgot?</a>
                             </div>
-                            <input type="password" class="form-control"
+                            <input name="password" type="password" class="form-control"
                                 placeholder="&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;" required>
                         </div>
                         <div class="form-check mb-4">
                             <input class="form-check-input" type="checkbox" id="remember">
                             <label class="form-check-label text-soft" for="remember">Keep me logged in</label>
                         </div>
-                        <button type="submit" class="btn btn-ink w-100 mb-3">Log in</button>
+                        <button type="button" class="btn btn-ink w-100 mb-3 loginButtonAction">Log in</button>
                         <button type="button" class="btn btn-outline-ink w-100">
                             Continue with Google
                         </button>
@@ -46,7 +46,21 @@
 @push('scripts')
 <script>
     $( document ).ready(function() {
-        console.log( "ready!" );
+        // console.log( "ready!" );
+        $('.loginButtonAction').click(function(){
+            let formData = $('.login-form').serialize();
+            $.ajax({
+                url: '{{route('logedin')}}',
+                type: 'POST',
+                data: formData,
+                success: function (response) {
+                    console.log(response);
+                },
+                error: function (xhr) {
+                    console.log(xhr.responseText);
+                }
+            });
+        });
     });
 </script>
 @endpush
