@@ -11,6 +11,7 @@
                     <p class="text-soft mb-4">Log in to see what people are clicking today.</p>
 
                     <form onsubmit="return false;">
+                        @csrf();
                         <div class="mb-3">
                             <label class="form-label">Email</label>
                             <input type="email" class="form-control" placeholder="you@company.com" required>
@@ -41,3 +42,11 @@
 
     </div>
 @endsection
+{{-- Page-specific JavaScript --}}
+@push('scripts')
+<script>
+    $( document ).ready(function() {
+        console.log( "ready!" );
+    });
+</script>
+@endpush
