@@ -14,7 +14,7 @@ class LoginController extends Controller
         // return $request->all();
         $email = $request->email;
         $pass = $request->password;
-        return [$email,$pass];
+        // return [$email,$pass];
 
     }
 
