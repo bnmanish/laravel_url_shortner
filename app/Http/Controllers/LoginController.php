@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -14,8 +15,11 @@ class LoginController extends Controller
         // return $request->all();
         $email = $request->email;
         $pass = $request->password;
-        // return [$email,$pass];
-
+        if (Auth::attempt(['email' => $email, 'password' => $pass])) {
+            return ['status' => 200, 'route' => route('dashboard')];
+        }else{
+            return ['status' => 400, 'message'=> 'wrong credential'];
+        }
     }
 
     public function signup(){
