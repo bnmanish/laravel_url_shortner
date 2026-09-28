@@ -56,7 +56,15 @@
                 success: function (response) {
                     console.log(response);
                     if(response.status == 200){
-                        window.location.href = response.route;
+
+                        Swal.fire({
+                            title: 'Success!',
+                            text: 'logedin successfully.',
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        });
+
+                        // window.location.href = response.route;
                     }
                 },
                 error: function (xhr) {
