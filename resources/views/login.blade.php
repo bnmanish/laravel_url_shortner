@@ -11,7 +11,7 @@
                     <p class="text-soft mb-4">Log in to see what people are clicking today.</p>
 
                     <form class="login-form" action="{{route('logedin')}}" method="POST">
-                        @csrf
+                        @csrf 
                         <div class="mb-3">
                             <label class="form-label">Email</label>
                             <input name="email" type="email" class="form-control" placeholder="you@company.com" required>
