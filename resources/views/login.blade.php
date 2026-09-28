@@ -55,6 +55,9 @@
                 data: formData,
                 success: function (response) {
                     console.log(response);
+                    if(response.status == 200){
+                        window.location.href = response.route;
+                    }
                 },
                 error: function (xhr) {
                     console.log(xhr.responseText);

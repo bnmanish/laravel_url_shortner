@@ -12,7 +12,6 @@ class LoginController extends Controller
     }
 
     public function logedin(Request $request){
-        // return $request->all();
         $email = $request->email;
         $pass = $request->password;
         if (Auth::attempt(['email' => $email, 'password' => $pass])) {
