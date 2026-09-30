@@ -56,7 +56,6 @@
                 success: function (response) {
                     console.log(response);
                     if(response.status == 200){
-
                         Swal.fire({
                             title: 'Success!',
                             text: 'logedin successfully.',
