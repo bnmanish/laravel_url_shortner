@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="{{ url('/') }}/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url('/') }}/assets/css/style.css">
     <link rel="stylesheet" href="{{ url('/') }}/assets/css/custom.css">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css">
     <link rel="icon" type="image/x-icon" href="{{ url('assets/logo/favicon.png') }}">
     @stack('styles')
     <style>
@@ -281,8 +283,9 @@
     <script src="{{ url('/') }}/assets/js/bootstrap.bundle.min.js"></script>
     <script src="{{ url('/') }}/assets/js/app.js"></script>
     <script src="{{ url('/') }}/assets/js/jquery-4.0.0.min.js"></script>
-    <script src="{{ url('/') }}/assets/js/custom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ url('/') }}/assets/js/custom.js"></script>
     @stack('scripts')
     <!-- simple Cookie Consent Banner js starts-->
     <!-- <script>

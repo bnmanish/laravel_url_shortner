@@ -54,16 +54,20 @@
                 type: 'POST',
                 data: formData,
                 success: function (response) {
-                    console.log(response);
+                    console.log('111111111111',response,'111111111');
                     if(response.status == 200){
-                        Swal.fire({
-                            title: 'Success!',
-                            text: 'logedin successfully.',
+                        $.toast({
+                            // position: 'top-right',
+                            position: 'top-center',
+                            heading: 'Success',
+                            text: 'loged in successfully!',
+                            showHideTransition: 'slide',
                             icon: 'success',
-                            confirmButtonText: 'OK'
-                        });
-
-                        // window.location.href = response.route;
+                            hideAfter: 1500
+                        })
+                        setTimeout(function () {
+                            window.location.href = response.route;
+                        }, 2000);
                     }
                 },
                 error: function (xhr) {
