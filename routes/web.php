@@ -29,13 +29,14 @@ Route::get('/disclaimer', [HomeController::class, 'disclaimer'])->name('disclaim
 
 
 
-
-Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
-Route::get('/analytics', [DashboardController::class, 'analytics'])->name('analytics');
-Route::get('/qrcode', [DashboardController::class, 'qrcode'])->name('qrcode');
-Route::get('/bio', [DashboardController::class, 'bio'])->name('bio');
-Route::get('/team', [DashboardController::class, 'team'])->name('team');
-Route::get('/setting', [DashboardController::class, 'setting'])->name('setting');
+Route::middleware('auth')->group(function () {
+	Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+	Route::get('/analytics', [DashboardController::class, 'analytics'])->name('analytics');
+	Route::get('/qrcode', [DashboardController::class, 'qrcode'])->name('qrcode');
+	Route::get('/bio', [DashboardController::class, 'bio'])->name('bio');
+	Route::get('/team', [DashboardController::class, 'team'])->name('team');
+	Route::get('/setting', [DashboardController::class, 'setting'])->name('setting');
+});
 
 
 
