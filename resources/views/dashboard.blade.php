@@ -9,7 +9,7 @@
 
         <div class="d-flex justify-content-between align-items-end mb-4 flex-wrap gap-2">
             <div>
-                <h2 class="h3 mb-1">Good afternoon, Priya.</h2>
+                <h2 class="h3 mb-1">{{$greeting}}, {{Auth::user()->name}}.</h2>
                 <p class="text-soft mb-0">Here's what happened across your links this week.</p>
             </div>
         </div>

@@ -20,7 +20,18 @@ class DashboardController extends Controller
         // $data = $data->orderBy('created_at', 'desc')->get();
 
         // return view('dashboard',['data'=>$data]);
-        return view('dashboard');
+
+        $greeting = "";
+        $hour = date('H');
+        if($hour < 12) {
+            $greeting = "Good Morning";
+        }elseif ($hour < 18) {
+            $greeting = "Good Afternoon";
+        }else {
+            $greeting = "Good Evening";
+        }
+
+        return view('dashboard')->with(['greeting' => $greeting]);
     }
 
     public function analytics(){
