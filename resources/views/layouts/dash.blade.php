@@ -80,7 +80,8 @@
 
             <div class="divider pt-3 mt-3" style="border-color:var(--line-dark);">
                 <div class="d-flex align-items-center gap-2">
-                    <div class="rounded-circle" style="width:32px;height:32px;background:var(--rope);flex-shrink:0;">
+                    <div class="rounded-circle"> 
+                        <img src="{{url('assets/images/default-avatar-2.png')}}" style="width:32px">
                     </div>
                     <div class="text-truncate">
                         <div class="text-white" style="font-size:0.88rem;">{{Auth::user()->name}}</div>
