@@ -167,42 +167,4 @@
     </div>
     </main>
     </div>
-
-    <!-- Create link modal -->
-    <div class="modal fade" id="createLinkModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content" style="border-radius:var(--radius-md);">
-                <div class="modal-header">
-                    <h5 class="modal-title">Create a new link</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label class="form-label">Destination URL</label>
-                        <input type="url" class="form-control" placeholder="https://your-site.com/page">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Short link</label>
-                        <div class="input-group">
-                            <span class="input-group-text mono"
-                                style="background:var(--paper-dim); border-color:var(--line);">knot.to/</span>
-                            <input type="text" class="form-control mono" placeholder="custom-slug">
-                        </div>
-                    </div>
-                    <div class="mb-1">
-                        <label class="form-label">Campaign</label>
-                        <select class="form-select">
-                            <option>No campaign</option>
-                            <option>Spring launch</option>
-                            <option>Newsletter</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-ink" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-rope">Create link</button>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
