@@ -5,10 +5,7 @@
     {{-- Page-specific CSS --}}
     @push('styles')
         <style>
-            /*    .page-title {
-                            color: #0d6efd;
-                            font-weight: 700;
-                        }*/
+
         </style>
     @endpush
     <!-- Hero -->
