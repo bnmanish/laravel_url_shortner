@@ -2,12 +2,6 @@
 @section('title', 'Knot — Shorten, brand, and track every link')
 @section('meta_description', 'Knot — Shorten, brand, and track every link')
 @section('content')
-    {{-- Page-specific CSS --}}
-    @push('styles')
-        <style>
-
-        </style>
-    @endpush
     <div class="legal-page py-5">
         <h2>Privacy Policy</h2>
         <p class="last-updated">Last updated: September 13, 2026</p>
