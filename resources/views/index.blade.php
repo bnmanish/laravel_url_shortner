@@ -2,12 +2,6 @@
 @section('title', 'Knot — Shorten, brand, and track every link')
 @section('meta_description', 'Knot — Shorten, brand, and track every link')
 @section('content')
-    {{-- Page-specific CSS --}}
-    @push('styles')
-        <style>
-
-        </style>
-    @endpush
     <!-- Hero -->
     <header class="container py-5 py-lg-6">
         <div class="row align-items-center gy-5 pt-4">
