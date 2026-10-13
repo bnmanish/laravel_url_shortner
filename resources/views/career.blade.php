@@ -2,13 +2,6 @@
 @section('title', 'Knot — Shorten, brand, and track every link')
 @section('meta_description', 'Knot — Shorten, brand, and track every link')
 @section('content')
-    {{-- Page-specific CSS --}}
-    @push('styles')
-        <style>
-
-
-        </style>
-    @endpush
     <div class="carrier-page py-5">
         <h2>Join the Knot Team</h2>
         <p class="page-subtitle">We're building the best free link management platform. Help us keep it free, open, and
