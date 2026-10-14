@@ -76,6 +76,15 @@
                     </svg>
                     Settings
                 </a>
+
+                <a class="dash-nav-link {{ request()->routeIs('profile') ? 'active' : '' }}" href="{{ route('profile') }}">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <circle cx="12" cy="12" r="3.2" />
+                        <path
+                            d="M19.4 13.5a1.7 1.7 0 0 0 .34 1.87l.06.06a2.1 2.1 0 1 1-2.96 2.96l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1.03 1.55V20a2.1 2.1 0 1 1-4.2 0v-.09a1.7 1.7 0 0 0-1.1-1.55 1.7 1.7 0 0 0-.34-1.87l-.06-.06A2.1 2.1 0 1 1 8.2 4.15l.06.06a1.7 1.7 0 0 0 1.87.34H10.2a1.7 1.7 0 0 0 1.03-1.55V3a2.1 2.1 0 1 1 4.2 0v.09a1.7 1.7 0 0 0 1.03 1.55 1.7 1.7 0 0 0 1.87-.34l.06-.06a2.1 2.1 0 1 1 2.96 2.96l-.06.06a1.7 1.7 0 0 0-.34 1.87V9.2a1.7 1.7 0 0 0 1.55 1.03H21a2.1 2.1 0 1 1 0 4.2h-.09a1.7 1.7 0 0 0-1.55 1.03Z" />
+                    </svg>
+                    Profile
+                </a>
             </nav>
 
             <div class="divider pt-3 mt-3" style="border-color:var(--line-dark);">

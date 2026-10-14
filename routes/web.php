@@ -36,6 +36,11 @@ Route::middleware('auth')->group(function () {
 	Route::get('/bio', [DashboardController::class, 'bio'])->name('bio');
 	Route::get('/team', [DashboardController::class, 'team'])->name('team');
 	Route::get('/setting', [DashboardController::class, 'setting'])->name('setting');
+
+	Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
+
+
+
 });
 
 
