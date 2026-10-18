@@ -8,6 +8,8 @@
     <meta name="description" content="@yield('meta_description')">
     <link rel="stylesheet" href="{{ url('/') }}/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url('/') }}/assets/css/style.css">
+    <link rel="stylesheet" href="{{ url('/') }}/assets/css/dashboard-custom.css">
+
     <link rel="icon" type="image/x-icon" href="{{ url('assets/logo/favicon.png') }}">
     @stack('styles')
     <style>
