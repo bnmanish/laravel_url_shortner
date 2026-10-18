@@ -34,4 +34,6 @@ Route::middleware('auth')->group(function () {
 	Route::get('/team', [DashboardController::class, 'team'])->name('team');
 	Route::get('/setting', [DashboardController::class, 'setting'])->name('setting');
 	Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
+	Route::post('/profile/update', [ProfileController::class, 'profileUpdate'])->name('profile.update');
+
 });

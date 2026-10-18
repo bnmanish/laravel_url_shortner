@@ -17,23 +17,23 @@
         <!-- Account settings -->
         <div class="stat-tile mb-4">
             <h6 class="mb-3 pb-2" style="border-bottom:1px solid var(--line);">Account</h6>
-            <form onsubmit="return false;">
+            <form id="profile-form" style="post" action="{{route('profile.update')}}">
                 <div class="row gy-3">
                     <div class="col-md-6">
-                        <label class="form-label">First name</label>
-                        <input type="text" class="form-control" value="Priya">
+                        <label class="form-label">Name</label>
+                        <input type="text" name="name" class="form-control" value="Priya">
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label">Last name</label>
-                        <input type="text" class="form-control" value="Menon">
-                    </div>
-                    <div class="col-12">
                         <label class="form-label">Email</label>
-                        <input type="email" class="form-control" value="priya@fernway.com">
+                        <input type="text" name="email" class="form-control" value="Menon">
                     </div>
-                    <div class="col-12">
+                    <div class="col-6">
                         <label class="form-label">Password</label>
-                        <input type="password" class="form-control" placeholder="Enter new password to change">
+                        <input type="password" name="password" class="form-control" placeholder="*******">
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label">Confirm Password</label>
+                        <input type="password" name="password_confirmation" class="form-control" placeholder="*******">
                     </div>
                     <div class="col-12">
                         <button type="submit" class="btn btn-rope">Save changes</button>
@@ -46,3 +46,15 @@
     </main>
     </div>
 @endsection
+{{-- Page-specific JavaScript --}}
+@push('scripts')
+<script>
+    $( document ).ready(function() {
+        $('#profile-form').on('submit', function (e) {
+            e.preventDefault();
+
+            // AJAX code here
+        });
+    });
+</script>
+@endpush
